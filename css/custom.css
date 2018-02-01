@@ -15,4 +15,11 @@ nav {
 .company-template {
     padding: 3rem 1.5rem;
     text-align: center;
+    color: #193b69;
+}
+.btn-color-clarionBlue{
+    background: #193B69;
+}
+.text-white{
+    color: white;
 }
