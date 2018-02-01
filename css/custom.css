@@ -1,0 +1,18 @@
+:root {
+    --clarionBlue: #193B69;
+    --clarionGold: #9B8542
+}
+
+body {
+    padding-top: 5rem;
+    background: url("../Images/grunge_wall.png");
+}
+
+nav {
+    background-color: #193B69;
+}
+
+.company-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
