@@ -26,7 +26,8 @@
             <div class = "col-6 offset-2 jumbotron text-center">
                 <h1>Choose your sport from the dropdown</h1>
 
-                <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     M Swimming and Diving
                 </button>
 
@@ -42,22 +43,46 @@
 
                 <h3 class = "mt-lg-5">Choose exercise from the dropdown and enter your score</h3>
 
-                <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Back Squat
-                </button>
-                <div class = "dropdown-menu">
-                    <a class = "dropdown-item">Back Squat</a>
-                    <a class = "dropdown-item">Bench Press</a>
-                    <a class = "dropdown-item">Power Clean</a>
+                <div class = "row">
+                    <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle col-3 mx-auto"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Back Squat
+                    </button>
+                    <div class = "dropdown-menu col-3">
+                        <a class = "dropdown-item">Back Squat</a>
+                        <a class = "dropdown-item">Bench Press</a>
+                        <a class = "dropdown-item">Power Clean</a>
+                    </div>
+                    <input type = "number" class = "text-center col-2 mx-auto mr-0"/>
+                    <button type = "submit" class = "btn  col-2 mx-auto ml-0">Enter</button>
                 </div>
 
+                <div class = "row mt-5">
+                    <div class="col-6 text-center">
+                        <h3>Team Averages</h3>
+                        <p>
+                            Back Squat: 135<br>
+                            Bench Press: 80<br>
+                            Power Clean: 75<br>
+                        </p>
+                    </div>
+
+                    <div class = "col-6 text-center">
+                        <h3>Team Highs</h3>
+                        Back Squat: 210 lbs(Cotton)<br>
+                        Bench Press: 95 lbs(Cotton)<br>
+                        Power Clean: 100 lbs (Cotton)<br>
+                    </div>
+                </div>
+                <canvas id="lineChart" class ="col-8"></canvas>
             </div>
+
             <div class = "col-2 offset-1 jumbotron text-center">
-                <h1>Helpful Links</h1>
+                <h3>Helpful Links</h3>
             </div>
         </div>
     </div><!-- /.container -->
-
+    <script src="./js/lineChart.js">fillChart();</script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
