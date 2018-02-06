@@ -39,6 +39,26 @@
           Special thanks to Jesse Kelley, Bree Kelley, Jennifer Herron, Jon Strub and Jody Strausser.
           </h5>
       </div>
+
+      <div id="map" class = "map"></div>
+      <script>
+          function initMap() {
+              var uluru = {lat: 41.20776083868054, lng: -79.38060723956448};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 17,
+                  center: uluru
+              });
+              var marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map
+              });
+          }
+      </script>
+      <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7j3O6YLRgClNnSOuSHDcZjxzdsKLAfU8&callback=initMap">
+      </script>
+
+
   </div>
 
 

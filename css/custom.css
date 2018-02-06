@@ -23,7 +23,7 @@ nav {
 .text-white{
     color: white;
 }
-a {
+nav a{
     color: #FFF;
 }
 .carousel-inner > .carousel-item > img {
@@ -35,4 +35,8 @@ a {
 }
 .font-size-large{
     font-size: 30px;
+}
+.map{
+    height: 400px;
+    width: 100%;
 }
