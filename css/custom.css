@@ -26,3 +26,13 @@ nav {
 a {
     color: #FFF;
 }
+.carousel-inner > .carousel-item > img {
+    width:1719px;
+    height:700px;
+}
+.clarion-blue{
+    color: #193B69;
+}
+.font-size-large{
+    font-size: 30px;
+}
