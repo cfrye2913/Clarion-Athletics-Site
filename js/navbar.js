@@ -1,6 +1,8 @@
 
 $(document).ready(function createNav(){
-    $("nav").load("./navbar.html")
+    $("footer").load("./footer.html");
+    $("nav").load("./navbar.html");
+
     }
 );
 
