@@ -16,16 +16,23 @@
     <!-- Custom styles for this template -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/navbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
     </nav>
     <div class = "company-template "><!--Container-->
+
+
         <div class = "row">
+
+            <!--This div contains the main content of the page including the dropdowns and form-->
             <div class = "col-6 offset-2 jumbotron text-center">
                 <h1>Choose your sport from the dropdown</h1>
 
+                <!--Dropdown to select your sport-->
                 <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     M Swimming and Diving
@@ -41,7 +48,9 @@
                     <a class = "dropdown-item">Baseball</a>
                 </div>
 
+
                 <h3 class = "mt-lg-5">Choose exercise from the dropdown and enter your score</h3>
+
 
                 <div class = "row">
                     <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle col-3 mx-auto"
@@ -55,6 +64,25 @@
                     </div>
                     <input type = "number" class = "text-center col-2 mx-auto mr-0"/>
                     <button type = "submit" class = "btn  col-2 mx-auto ml-0">Enter</button>
+                    <!--form to submit personal scores-->
+                    <form>
+                        <!--Dropdown to select exercise-->
+                        <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle col-3 mx-auto"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Back Squat
+                        </button>
+
+                        <div class = "dropdown-menu col-3">
+                            <a class = "dropdown-item">Back Squat</a>
+                            <a class = "dropdown-item">Bench Press</a>
+                            <a class = "dropdown-item">Power Clean</a>
+                        </div>
+
+                        <!--Number input for score-->
+                        <input type = "number" class = "text-center col-2 mx-auto mr-0"/>
+                        <!--Submit button-->
+                        <button type = "submit" class = "btn  col-2 mx-auto ml-0">Enter</button>
+                    </form>
                 </div>
 
                 <div class = "row mt-5">
@@ -74,7 +102,7 @@
                         Power Clean: 100 lbs (Cotton)<br>
                     </div>
                 </div>
-                <canvas id="lineChart" class ="col-8"></canvas>
+                <canvas id="lineChart" class = "myChart"></canvas>
             </div>
 
             <div class = "col-2 offset-1 jumbotron text-center">
@@ -82,6 +110,49 @@
             </div>
         </div>
     </div><!-- /.container -->
+
+
+    <!--Script to generate the line chart-->
+    <script>
+        //Labels for the x axis
+        var months = ["January", "February", "March", "April", "May", "June"];
+        //arrays that represent data sets for the y axis
+        //TO CHANGE DATA WITHIN THE ARRAY, CHANGE THESE NUMBERS
+        var backSquat = [123, 127, 130, 136, 130, 140];
+        var benchPress = [75, 78, 84, 80, 82, 86];
+        var powerClean = [67, 70, 75, 76, 78, 80];
+
+        //get a reference to the canvas where the chart will be drawn
+        var ctx = document.getElementById("lineChart");
+
+        //draw the lines to populate the chart
+        var myChart = new Chart(ctx, {
+            type: 'line',                           //define the type of chart
+            data: {
+                labels: months,                     //specify the array that holds the labels
+                datasets: [
+                    {
+                        data:backSquat,             //specify data set
+                        label: "Back Squat",        //give a label to the line
+                        borderColor: "#ff4433",     //give line a color
+                        fill: false                 //if true, line will be filled below,fillColor can be changed
+                    },
+                    {
+                        data: benchPress,
+                        label: "Bench Press",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    },
+                    {
+                        data:powerClean,
+                        label: "Power Clean",
+                        borderColor: "#33ff44",
+                        fill: false
+                    }
+                ]
+            }
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
