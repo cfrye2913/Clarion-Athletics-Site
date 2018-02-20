@@ -11,25 +11,24 @@
     <title>Clarion University Athletics</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
     <!-- Custom styles for this template -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/navbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
-    </nav>
-    <div class = "company-template "><!--Container-->
+<?php include('../includes/navbar.html'); ?>
+    <div class = "company-template"><!--Container-->
 
 
         <div class = "row">
 
             <!--This div contains the main content of the page including the dropdowns and form-->
-            <div class = "col-6 offset-2 jumbotron text-center">
+            <div class = "col-8 offset-2 jumbotron text-center">
                 <h1>Choose your sport from the dropdown</h1>
 
                 <!--Dropdown to select your sport-->
@@ -54,7 +53,7 @@
 
                 <div class = "row">
                     <!--form to submit personal scores-->
-                    <form>
+                    <form class = "col-12">
                         <!--Dropdown to select exercise-->
                         <button type="button" class="btn-lg btn-color-clarionBlue text-white dropdown-toggle col-3 mx-auto"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,11 +92,9 @@
                 </div>
                 <canvas id="lineChart" class = "myChart"></canvas>
             </div>
-
-            <div class = "col-2 offset-1 jumbotron text-center">
-                <h3>Helpful Links</h3>
-            </div>
         </div>
+
+        <?php include("../includes/footer.html")?>
     </div><!-- /.container -->
 
 
@@ -153,6 +150,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Holder.js for placeholder images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-
 </body>
 </html>

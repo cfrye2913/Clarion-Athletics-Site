@@ -11,24 +11,34 @@
     <title>Clarion University Athletics</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
     <!-- Custom styles for this template -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/navbar.js"></script>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
-    </nav>
+<?php include('../includes/navbar.html'); ?>
     <div class="container">
-
         <div class="company-template">
             <h1>Video Page</h1>
-            <p class="lead"> This is the video page of the website</p>
+            <form class="align-content-center my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </form>
+            <p class="lead">
+                <h2>
+                    Back Squat
+                </h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fgqwt7p_Gts" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+            <br>
+            <h2> Bench Press </h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/rT7DgCr-3pg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div><!-- /.container -->
 
+    <?php include("../includes/footer.html")?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -40,6 +50,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Holder.js for placeholder images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+
 
 </body>
 </html>
