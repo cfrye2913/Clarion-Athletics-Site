@@ -11,18 +11,18 @@
     <title>Clarion University Athletics</title>
 
     <!-- Bootstrap core CSS -->
-     <link rel="stylesheet" href="./css/bootstrap.css">
-     <link rel="stylesheet" href="./css/custom.css">
+     <link rel="stylesheet" href="../css/bootstrap.css">
+     <link rel="stylesheet" href="../css/custom.css">
     <!-- Custom styles for this template -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/navbar.js"></script>
 
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
-  </nav>
-    <div class="container mb-5">
+
+  <?php include('../includes/navbar.html'); ?>
+
+  <div class="container mb-5">
 
       <!--Carousel Indicators-->
 
@@ -38,19 +38,19 @@
         <!--Carousel Images-->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="./Images/basketball.jpeg" alt="First slide">
+            <img class="d-block w-100" src="../Images/basketball.jpeg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/diving.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/diving.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/shotput.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/shotput.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/wrestling.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/wrestling.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/swimmin.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../Images/swimmin.jpg" alt="Third slide">
           </div>
         </div>
 
@@ -70,23 +70,24 @@
         <div class = "text-center mt-5">
           <h1>Welcome to Clarion Athletics’ Strength Training</h1><br> </div>
         <p class = "font-size-large">
-           &nbsp&nbsp&nbsp&nbsp This site is dedicated to Clarion University’s Athletic Department
+           &nbsp;&nbsp;&nbsp;&nbsp; This site is dedicated to Clarion University’s Athletic Department
         in hope that the site will provide Coach Jesse’s workouts, each team’s
         weight averages, competition scores and times and videos on how to
           do different exercises.</p>
             <p class = "font-size-large">
-              &nbsp&nbsp&nbsp&nbsp Athletes and Coaches can sign into the site and enter individual’s
+              &nbsp;&nbsp;&nbsp;&nbsp; Athletes and Coaches can sign into the site and enter individual’s
         scores, speeds and/or weights. Each submission will be entered and
         verified into the database and become public to users.<p>
             <p class = "font-size-large">
-        &nbsp&nbsp&nbsp&nbsp Our goal is to show progress and help push other Clarion teams to
+        &nbsp;&nbsp;&nbsp;&nbsp; Our goal is to show progress and help push other Clarion teams to
         beat each other’s scores in hope to create friendly competition and
         push each other to reach new heights! Go Golden Eagles!
         (Make sure you show each team’s support by attending their games and competitions).
         </p>
       </div>
 
-<footer></footer>
+
+      <?php include("../includes/footer.php"); ?>
 
 
     </div><!-- /.container -->
@@ -104,3 +105,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
   </body>
 </html>
+

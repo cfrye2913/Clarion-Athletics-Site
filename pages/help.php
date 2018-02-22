@@ -11,18 +11,16 @@
   <title>Clarion University Athletics</title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="./css/bootstrap.css">
-  <link rel="stylesheet" href="./css/custom.css">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/custom.css">
   <!-- Custom styles for this template -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="./js/navbar.js"></script>
-  <script src="./js/footer.js"></script>
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
-  </nav>
+    <?php include('../includes/navbar.html'); ?>
+
   <div class="container">
 
   <div class="company-template">
@@ -79,7 +77,7 @@
 
   </div>
 
-  <footer> </footer>
+      <?php include("../includes/footer.php") ?>
 
 
 </div><!-- /.container -->

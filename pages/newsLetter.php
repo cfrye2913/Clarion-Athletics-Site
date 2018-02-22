@@ -11,22 +11,47 @@
     <title>Clarion University Athletics</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
     <!-- Custom styles for this template -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/navbar.js"></script>
 
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
-</nav>
-<div class="container">
 
-    <div class="company-template">
-        <h1>This page is under construction and will be coming soon.</h1>
+<?php include('../includes/navbar.html'); ?>
+
+<div class="container mb-5">
+
+    <!--Content-->
+    <div class = "clarion-blue text-center company-template">
+        <h1>Sign up for our weekly news letter!</h1>
+        <div class = "col-6 offset-3 text-left">
+
+            <form action = "../phpFunctionality/processNewsLetterSignUp.php" method = "post">
+
+                <label for="firstName">First Name: </label>
+                <input type = "text" class = "form-control" id="firstName" name = "firstName"> <br/>
+
+                <label for="lastName""">Last Name:</label>
+                <input type = "text" class = "form-control" id="lastName" name = "lastName"><br/>
+
+                <label for = "email">Email:</label>
+                <input type = "email" class = "form-control" id = "email" name = "email"><br/>
+
+                <label for = "sport">Sport:</label>
+                <input type = "text" class = "form-control" id = "sport" name = "sport">
+
+                <input type = "submit" value = "Sign Up" class = "btn btn-color-clarionBlue mt-3 text-white"/>
+            </form>
+        </div>
     </div>
+
+
+    <?php include("../includes/footer.php"); ?>
+
+
 </div><!-- /.container -->
 
 
@@ -42,3 +67,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
 </body>
 </html>
+
