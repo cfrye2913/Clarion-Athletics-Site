@@ -13,5 +13,9 @@
     $email = $_POST["email"];
     $sport = $_POST["sport"];
 
+    $emailfile = fopen("pages/email.txt". "a");
+    fwrite($emailfile, "$email");
+    
     echo "$firstName";
 ?>
+
