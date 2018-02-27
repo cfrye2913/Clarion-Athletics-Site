@@ -1,4 +1,27 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+
+    <title><?php echo $title?></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <!-- Custom styles for this template -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="company-template"><nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
     <a class="navbar-brand" href="#">
         <a href = '../pages/home.php'>
             <img class = 'img-responsive' src="../Images/Clarion_Golden_Eagles_logo.png" alt = "Clarion Athletics" width = '60px' height = '30px'>
@@ -65,3 +88,4 @@
         </form>-->
     </div>
     </nav>
+

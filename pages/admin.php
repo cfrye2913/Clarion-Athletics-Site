@@ -17,6 +17,7 @@ include("../includes/navbar.html"); ?>
         </form>
         <p class="text-danger">For best quality, images should be 1719 x 967 pixels</p>
     </div>
+
 </div><!-- /.container -->
 
 

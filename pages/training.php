@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<?php
+    $title = "Training - Clarion University Athletics";
+    include('../includes/navbar.php'); ?>
 
-
-    <title>Clarion University Athletics</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/custom.css">
-    <!-- Custom styles for this template -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
-
-</head>
-
-<body>
-<?php include('../includes/navbar.html'); ?>
     <div class = "company-template"><!--Container-->
 
 

@@ -2,16 +2,21 @@
     //set a title
     $title = "News Letter Sign Up";
     //include the navbar
-    require '../includes/navbar.html';
+    require '../includes/navbar.php';
 ?>
 
 <h1>News Letter Sign Up</h1>
 
 <?php
+    //Grabs fields from text boxes
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
     $email = $_POST["email"];
     $sport = $_POST["sport"];
-
-    echo "$firstName";
+    //Opens email file
+    $emailfile = fopen("./email.txt", "a");
+    //Writes email to email file. Each email is created on a new line.
+    fwrite($emailfile, $email . PHP_EOL);
+    echo  "Welcome, $firstName";
 ?>
+
