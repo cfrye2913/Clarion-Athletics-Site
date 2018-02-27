@@ -13,8 +13,8 @@
     $email = $_POST["email"];
     $sport = $_POST["sport"];
 
-    $emailfile = fopen("pages/email.txt". "a");
-    fwrite($emailfile, "$email");
+    $emailfile = fopen("./email.txt", "a");
+    fwrite($emailfile, $email . PHP_EOL);
     
     echo "$firstName";
 ?>
