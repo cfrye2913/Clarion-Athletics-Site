@@ -26,6 +26,15 @@
 
     <div class="company-template">
         <h1>Admin Page</h1>
+
+        <form enctype="multipart/form-data"
+              action = "../phpFunctionality/addCarouselImages.php"
+              method = "post"
+              class = "row pt-5">
+            <div class = "col-6 text-right">Select an image to add to the home page:</div>
+            <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
+            <input type = "submit" value = "Upload Image" class = "btn-primary ml-auto mr-auto mt-3"/>
+        </form>
     </div>
 
 </div><!-- /.container -->
