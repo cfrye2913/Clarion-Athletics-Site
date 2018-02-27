@@ -14,8 +14,10 @@
     $sport = $_POST["sport"];
 
     $emailfile = fopen("pages/email.txt". "a");
+    $emailfile = fopen("./email.txt", "a");
     fwrite($emailfile, "$email");
     
     echo "$firstName";
+    echo  "Welcome, $firstName";
 ?>
 
