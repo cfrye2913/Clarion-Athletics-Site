@@ -7,6 +7,7 @@
       <!--Carousel Indicators-->
 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -18,19 +19,19 @@
         <!--Carousel Images-->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="../Images/basketball.jpeg" alt="First slide">
+            <img class="d-block w-100" src="../Images/CarouselImages/basketball.jpeg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../Images/diving.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/CarouselImages/diving.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../Images/shotput.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/CarouselImages/shotput.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../Images/wrestling.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Images/CarouselImages/wrestling.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../Images/swimmin.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../Images/CarouselImages/swimmin.jpg" alt="Third slide">
           </div>
         </div>
 

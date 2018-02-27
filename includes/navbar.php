@@ -9,11 +9,12 @@
 
 
     <title><?php echo $title?></title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/custom.css">
     <!-- Custom styles for this template -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 
 </head>
 
