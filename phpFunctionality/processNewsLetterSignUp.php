@@ -16,6 +16,6 @@
     $emailfile = fopen("./email.txt", "a");
     fwrite($emailfile, $email . PHP_EOL);
     
-    echo "$firstName";
+    echo  "Welcome, $firstName";
 ?>
 
