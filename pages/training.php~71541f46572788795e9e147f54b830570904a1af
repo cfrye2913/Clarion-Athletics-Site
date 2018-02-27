@@ -92,13 +92,9 @@
                 </div>
                 <canvas id="lineChart" class = "myChart"></canvas>
             </div>
-
-            <div class = "col-2 offset-1 jumbotron text-center">
-                <h3>Helpful Links</h3>
-            </div>
         </div>
 
-        <?php include("../includes/footer.php") ?>
+        <?php include("../includes/footer.html")?>
     </div><!-- /.container -->
 
 
