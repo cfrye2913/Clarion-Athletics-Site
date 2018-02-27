@@ -27,6 +27,12 @@
     <div class="company-template">
         <h1>Admin Page</h1>
     </div>
+    <div>
+        <?php
+            $myfile = fopen("testfile.txt", "w")
+
+        ?>
+    </div>
 </div><!-- /.container -->
 
 
