@@ -2,7 +2,7 @@
     //set a title
     $title = "News Letter Sign Up";
     //include the navbar
-    require '../includes/navbar.html';
+    require '../includes/navbar.php';
 ?>
 
 <h1>News Letter Sign Up</h1>
