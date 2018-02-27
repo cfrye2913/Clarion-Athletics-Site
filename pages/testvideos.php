@@ -38,7 +38,7 @@
         </div>
     </div><!-- /.container -->
 
-    <?php include("../includes/footer.html")?>
+    <?php include("../includes/footer.php")?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

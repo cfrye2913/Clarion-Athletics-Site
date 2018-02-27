@@ -49,10 +49,6 @@
     <?php include("../includes/footer.php") ?>
     <br>
 
-
-
-    <?php include("../includes/footer.html")?>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

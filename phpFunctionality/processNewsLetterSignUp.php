@@ -8,10 +8,10 @@
 <h1>News Letter Sign Up</h1>
 
 <?php
-    $firstName = $_POST("firstName");
-    $lastName = $_POST("lastName");
-    $email = $_POST("email");
-    $sport = $_POST("sport");
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $email = $_POST["email"];
+    $sport = $_POST["sport"];
 
     echo "$firstName";
 ?>
