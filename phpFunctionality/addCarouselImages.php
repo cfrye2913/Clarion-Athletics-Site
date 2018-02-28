@@ -2,7 +2,7 @@
     $title = "Image Uploaded";
     require("../includes/navbar.php");
     //get the file image and store the path that we want to store it at
-    $uploadFile = "../Images/" . $_FILES['userFile']['name'];
+    $uploadFile = "../Images/CarouselImages/" . $_FILES['userFile']['name'];
 
     //if the file already exists, we will replace it
     if(file_exists($uploadFile)){

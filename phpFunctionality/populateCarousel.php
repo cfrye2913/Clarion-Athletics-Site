@@ -29,41 +29,30 @@
     }
     else {//else, generate the carousel
         //generate the html for the carousel
-        //PHP_EOL is concatanated on the end of each line to make the html more readable when viewing
+        //PHP_EOL is concatenated on the end of each line to make the html more readable when viewing
         //the page source
         //The code below depends on bootstrap 4.0
         echo "<div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">".PHP_EOL;
         echo "<ol class=\"carousel-indicators\">" . PHP_EOL;
-        echo "<li data-target = '#carouselExampleIndicators' data-slide-to='0' class = 'active'></li>" . PHP_EOL;
+        echo "<li data-target = \"#carouselExampleIndicators\" data-slide-to=\"0\" class = \"active\"></li>" . PHP_EOL;
         //loop through the array and generate controllers for each image
         for ($i = 1; $i < $arraySize; $i++) {
-            echo "<li data-target = '#carouselExampleIndicators' data-slide-to='$i'></li>" . PHP_EOL;
+            echo "<li data-target = \"#carouselExampleIndicators\" data-slide-to=\"$i\"></li>" . PHP_EOL;
         }
         echo "</ol>" . PHP_EOL;
 
-        echo "<div class='carousel-inner'>".PHP_EOL;
+        echo "<div class=\"carousel-inner\">".PHP_EOL;
 
-        echo "<div class='carousel-item active'>".PHP_EOL;
+        echo "<div class=\"carousel-item active\">".PHP_EOL;
         echo "<img class=\"d-block w-100\" src=\"$dirPath/$imageArray[0]\" alt=\"Slide 0\">".PHP_EOL;
-        echo "</div>";
+        echo "</div>".PHP_EOL;
         //loop through the array and add each picture to the carousel
         for ($i = 1; $i < $arraySize; $i++) {
-            echo "<div class='carousel-item'>".PHP_EOL;
+            echo "<div class=\"carousel-item\">".PHP_EOL;
             echo "<img class=\"d-block w-100\" src=\"$dirPath/$imageArray[$i]\" alt=\"Slide $i\">".PHP_EOL;
             echo "</div>".PHP_EOL;
         }
         echo PHP_EOL."</div>".PHP_EOL;
-
-        //add the forward and backword navigational buttons to the carousel
-        /*echo "<a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">".PHP_EOL;
-        echo "<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>".PHP_EOL;
-        echo "<span class=\"sr-only\">Previous</span>".PHP_EOL;
-        echo "</a>".PHP_EOL;
-        echo "<a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">".PHP_EOL;
-        echo "<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>".PHP_EOL;
-        echo "<span class=\"sr-only\">Next</span>".PHP_EOL;
-        echo "</a>".PHP_EOL;
-        echo "</div>".PHP_EOL.PHP_EOL.PHP_EOL;*/
     }
 ?>
 <!--Carousel Controllers-->
@@ -76,3 +65,7 @@
     <span class="sr-only">Next</span>
 </a>
 </div>
+
+<?php
+    include("../includes/footer.php");
+?>

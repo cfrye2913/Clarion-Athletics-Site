@@ -19,6 +19,5 @@ Created by Christina Cotton, Aaron Cooper, and THE Chris Frye &nbsp&nbsp&nbsp<br
 <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Holder.js for placeholder images -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-<script> getFooter(); </script>
 </body>
 </html>
