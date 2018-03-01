@@ -14,9 +14,10 @@
     $email = $_POST["email"];
     $sport = $_POST["sport"];
     //Opens email file
-    $emailfile = fopen("./email.txt", "a");
+    $emailfile = fopen("../txtFiles/email.txt", "a");
     //Writes email to email file. Each email is created on a new line.
     fwrite($emailfile, $email . PHP_EOL);
-    echo  "Welcome, $firstName";
+    $sport = strtolower($sport);
+    echo  "Welcome, $firstName $lastName! We will try to send you news letters relevant to $sport.";
 ?>
 
