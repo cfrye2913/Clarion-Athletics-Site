@@ -12,16 +12,16 @@
             <form action = "../phpFunctionality/processNewsLetterSignUp.php" method = "post">
 
                 <label for="firstName">First Name: </label>
-                <input type = "text" class = "form-control" id="firstName" name = "firstName"> <br/>
+                <input type = "text" class = "form-control" id="firstName" name = "firstName" required> <br/>
 
                 <label for="lastName""">Last Name:</label>
-                <input type = "text" class = "form-control" id="lastName" name = "lastName"><br/>
+                <input type = "text" class = "form-control" id="lastName" name = "lastName" required><br/>
 
                 <label for = "email">Email:</label>
-                <input type = "email" class = "form-control" id = "email" name = "email"><br/>
+                <input type = "email" class = "form-control" id = "email" name = "email" required><br/>
 
                 <label for = "sport">Sport:</label>
-                <input type = "text" class = "form-control" id = "sport" name = "sport">
+                <input type = "text" class = "form-control" id = "sport" name = "sport" required>
 
                 <input type = "submit" value = "Sign Up" class = "btn btn-color-clarionBlue mt-3 text-white"/>
             </form>

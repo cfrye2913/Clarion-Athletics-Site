@@ -9,7 +9,7 @@
         populated using all images from
         ../Images/CarouselImages/-->
       <?php
-        include("../phpFunctionality/populateCarousel.php");
+      include("../phpFunctionality/populateCarousel.php");
       ?>
 
 

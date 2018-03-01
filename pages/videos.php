@@ -17,7 +17,7 @@
             <h2> Bench Press </h2>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/rT7DgCr-3pg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <?php $myfile = fopen("../quotes.txt", "r") or die("Unable to open file!");
+        <?php $myfile = fopen("../resourceFiles/quotes.txt", "r") or die("Unable to open file!");
         // Output one line until end-of-file
         while(!feof($myfile)) {
 
