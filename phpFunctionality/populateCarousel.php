@@ -1,9 +1,5 @@
 <?php
     //File to populate the carousel with all images from the Carousel Image folder
-    //Set the title and include the page template
-    $title = "test";
-    include("../includes/navbar.php");
-
     //get a directory handle to the carousel images
     $dirPath = "../Images/CarouselImages";
     //open and read the directory
@@ -65,7 +61,3 @@
     <span class="sr-only">Next</span>
 </a>
 </div>
-
-<?php
-    include("../includes/footer.php");
-?>
