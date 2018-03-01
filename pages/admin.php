@@ -35,6 +35,15 @@
             <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
             <input type = "submit" value = "Upload Image" class = "btn-primary ml-auto mr-auto mt-3"/>
         </form>
+        <br>
+        <form enctype="multipart/form-data"
+              action = "../phpFunctionality/uploadQuoteFile.php"
+              method = "post"
+              class = "row pt-5">
+            <div class = "col-6 text-right">Select a new quotes file:</div>
+            <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
+            <input type = "submit" value = "Upload Text File" class = "btn-primary ml-auto mr-auto mt-3"/>
+        </form>
     </div>
 
 </div><!-- /.container -->
