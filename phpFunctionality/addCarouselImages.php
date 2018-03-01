@@ -16,7 +16,13 @@
         if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE) {
             echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
                     document.location.href = \"../pages/admin.php\"</script>";
-            }
+        }
+        //check if the file exceeds the maximum upload file size
+        //This file size is specified in php.ini
+        elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
+        {
+            echo "This file is too large to be uploaded";
+        }
         else {
 
             //get image width and height

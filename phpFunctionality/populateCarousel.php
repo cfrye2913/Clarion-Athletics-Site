@@ -2,28 +2,40 @@
     //File to populate the carousel with all images from the Carousel Image folder
     //get a directory handle to the carousel images
     $dirPath = "../Images/CarouselImages";
+
+
     //open and read the directory
-    //loop through and store all image names in the imageArray
+    //Check if the directory is empty, if it is, echo a
+    //message that the directory is empty
+    //else, loop through and store all image names in the imageArray
     $imageDir = opendir($dirPath);
-    while(($file = readdir($imageDir)) != false)
+    if(count(scandir($dirPath)) == 2)//if something exists other than ./ and ../
     {
-        if($file != "." && $file != "..")
-        {
-            $imageArray[] = $file;
+        //initialize the array size to -1, this will trigger the error message
+        //if this condition is met
+        $arraySize = -1;
+    }
+    else {
+        while (($file = readdir($imageDir)) != false) {
+            if ($file != "." && $file != "..") {
+                $imageArray[] = $file;
+            }
         }
+
+        //close the directory
+        closedir($imageDir);
+        //print_r($imageArray);
+        //get the size of the array for later looping
+        $arraySize = count($imageArray);
     }
 
-    //close the directory
-    closedir($imageDir);
-    //print_r($imageArray);
-    //get the size of the array for later looping
-    $arraySize = count($imageArray);
     //if the directory is empty, display an error message
     if($arraySize <= 0)
     {
         echo "There are no images to show at this time.";
     }
     else {//else, generate the carousel
+
         //generate the html for the carousel
         //PHP_EOL is concatenated on the end of each line to make the html more readable when viewing
         //the page source
@@ -42,6 +54,7 @@
         echo "<div class=\"carousel-item active\">".PHP_EOL;
         echo "<img class=\"d-block w-100\" src=\"$dirPath/$imageArray[0]\" alt=\"Slide 0\">".PHP_EOL;
         echo "</div>".PHP_EOL;
+
         //loop through the array and add each picture to the carousel
         for ($i = 1; $i < $arraySize; $i++) {
             echo "<div class=\"carousel-item\">".PHP_EOL;
