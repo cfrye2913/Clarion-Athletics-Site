@@ -14,6 +14,21 @@ include("../includes/navbar.php"); ?>
             <input type = "submit" value = "Upload Image" class = "btn-primary ml-auto mr-auto mt-3 mb-3"/>
         </form>
         <p class="text-danger">For best quality, images should be 1719 x 967 pixels</p>
+        <h3>Current Images</h3>
+        <!--Show all of the image file names that are currently in the directory-->
+        <?php
+            $imageDirName = "../Images/CarouselImages/";
+            $imageArray = scandir($imageDirName);
+            for($i = 0; $i < count($imageArray); $i++)
+            {
+                if($imageArray[$i] != "." && $imageArray[$i] != "..")
+                {
+                    echo "$imageArray[$i] <br>";
+                }
+            }
+        ?>
+
+
     </div>
 
 <?php
