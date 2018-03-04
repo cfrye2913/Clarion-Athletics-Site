@@ -20,7 +20,9 @@
 
 <body>
 
-<?php include("../includes/navbar.php"); ?>
+<?php
+    $title = "Admin - Clarion Athletics";
+    include("../includes/navbar.php"); ?>
 
 <div class="container">
 
