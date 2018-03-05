@@ -24,6 +24,7 @@ include("../includes/navbar.php"); ?>
             <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
             <input type = "submit" value = "Upload Text File" class = "btn-primary ml-auto mr-auto mt-3"/>
         </form>
+        <h3>Current Images</h3>
         <!--Show all of the image file names that are currently in the directory-->
         <?php
             $imageDirName = "../Images/CarouselImages/";
@@ -31,6 +32,7 @@ include("../includes/navbar.php"); ?>
             for($i = 0; $i < count($imageArray); $i++)
             {
                 if($imageArray[$i] != "." && $imageArray[$i] != "..")
+                {
                     echo "$imageArray[$i] <br>";
                 }
             }
