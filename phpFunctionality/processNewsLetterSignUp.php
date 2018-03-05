@@ -13,11 +13,25 @@
     $lastName = $_POST["lastName"];
     $email = $_POST["email"];
     $sport = $_POST["sport"];
-    //Opens email file
-    $emailfile = fopen("../txtFiles/email.txt", "a");
-    //Writes email to email file. Each email is created on a new line.
-    fwrite($emailfile, $email . PHP_EOL);
-    $sport = strtolower($sport);
-    echo  "Welcome, $firstName $lastName! We will try to send you news letters relevant to $sport.";
-?>
+    $validEmail = true; //will be set to false if the email is invalid
+    //open the csv email file
+    $emailfile = fopen("../resourceFiles/email.csv", "a");
 
+    //validate the email address, if valid, add to file,
+    //if invalid, display an error message
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false)
+    {
+        echo "<script type='text/javascript'>alert('This email is not valid. Please try again.');
+                    document.location.href = \"../pages/newsLetter.php\"</script>";
+
+        $validEmail = false;
+    }
+
+    //Writes email,name, and sport to email file.
+    $data = array($lastName, $firstName, $email, $sport);
+    fputcsv($emailfile, $data);
+    //force sport string to lower case to display in message to user
+    $sport = strtolower($sport);
+    //display message to user
+    echo  "Welcome, $firstName $lastName! We will try to send you newsletters relevant to $sport.";
+?>

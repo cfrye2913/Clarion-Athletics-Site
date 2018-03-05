@@ -23,7 +23,7 @@
             <input type = "submit" value = "upload" class = "btn btn-color-clarionBlue mt-3 text-white"/>
         </form>
 
-        <?php $myfile = fopen("../quotes.txt", "r") or die("Unable to open file!");
+        <?php $myfile = fopen("../resourceFiles/quotes.txt", "r") or die("Unable to open file!");
         // Output one line until end-of-file
         while(!feof($myfile)) {
 
