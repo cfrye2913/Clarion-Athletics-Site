@@ -22,6 +22,6 @@
     fputcsv($emailFile, $fields);
     $sport = strtolower($sport);
     echo  "Welcome, $firstName $lastName! We will try to send you news letters relevant to $sport.";
-    fclose($emailPath);
+    fclose($emailFile);
 ?>
 

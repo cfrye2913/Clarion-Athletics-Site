@@ -1,8 +1,8 @@
 <?php
     $emailPath = "../txtFiles/email.csv";
     $emailFile = fopen($emailPath, "r");
-
-    while($newsletterInfo = fgetcsv($emailFile) !== FALSE)
+    //Gets the email field from the CSv file
+    while(($newsletterInfo = fgetcsv($emailFile)) !== FALSE)
     {
         $tempEmail = $newsletterInfo[2];
         include("automated_email.php");

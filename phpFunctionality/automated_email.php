@@ -16,9 +16,9 @@
     $smtpinfo["auth"] = true;
     $smtpinfo["username"] = "cubeckerlab@gmail.com";
     //Password redacted for VCS purposes
-    $smtpinfo["password"] = "";
+    $smtpinfo["password"] = "BbplLjJ0587f";
     $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
-    $smtp = &Mail::factory('smtp', $smtpinfo);
+    $smtp = Mail::factory('smtp', $smtpinfo);
     $mail=$smtp->send($to,$headers,$body);
     if(PEAR::isError($mail))
     {
