@@ -4,7 +4,7 @@
     //Sender
     $from="cubeckerlab@gmail.com";
     //Recipient
-    $to="mr.aaroncooper@gmail.com";
+    $to=$tempEmail;
     //subject
     $subject = "Test";
     //content

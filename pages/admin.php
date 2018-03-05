@@ -14,6 +14,9 @@ include("../includes/navbar.php"); ?>
             <input type = "submit" value = "Upload Image" class = "btn-primary ml-auto mr-auto mt-3 mb-3"/>
         </form>
         <p class="text-danger">For best quality, images should be 1719 x 967 pixels</p>
+        <form action="../phpFunctionality/sendNewsletter.php" method="get">
+            <input type="submit" value="Send newsletter" class = "btn-danger">
+        </form>
     </div>
 
 <?php
