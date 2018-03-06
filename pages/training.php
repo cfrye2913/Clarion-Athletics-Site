@@ -1,3 +1,7 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Allow the user to track his or her training and compare
+    it to the other users'-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <?php
     $title = "Training - Clarion University Athletics";

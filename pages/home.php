@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Landing page for the site-->
 <?php
     $title = "Home - Clarion Athletics Website";
     require('../includes/navbar.php'); ?>

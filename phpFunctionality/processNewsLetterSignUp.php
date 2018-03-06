@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Page that adds users to an email csv file-->
 <?php
     //set a title
     $title = "News Letter Sign Up";

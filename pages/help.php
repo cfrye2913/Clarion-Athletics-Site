@@ -1,4 +1,8 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: This page shows general information about the site-->
 <?php
+    //set the title and include the header
     $title = "Help - Clarion Athletics Website";
     require('../includes/navbar.php'); ?>
 

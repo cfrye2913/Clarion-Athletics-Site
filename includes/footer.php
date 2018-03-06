@@ -1,6 +1,16 @@
-<div class = "text-center">Give us feedback by sending us an email to <a href="mailto:c.n.cotton@eagle.clarion.edu">c.n.cotton@eagle.clarion.edu</a><br>
-Created by Christina Cotton, Aaron Cooper, and Chris Frye &nbsp&nbsp&nbsp<br> &copy2018
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: This page can be included on any page to incorporate
+    a common footer on all pages. This page should be included
+    on every page that the user sees.
+    ****This include is required to use any Bootstrap JS-->
+
+
+<div class = "text-center">
+    Give us feedback by sending us an email to <a href="mailto:c.n.cotton@eagle.clarion.edu">c.n.cotton@eagle.clarion.edu</a><br>
+    Created by Christina Cotton, Aaron Cooper, and Chris Frye &nbsp&nbsp&nbsp<br> &copy2018
 <br>
+    <!--Include the last date modified-->
     <?php include("dateModified.php"); ?>
 </div>
 </div>

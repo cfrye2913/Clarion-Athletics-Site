@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Simple form to allow the user to sign up for a newsletter-->
 <?php
     $title = "Newsletter Signup - Clarion Athletics Website";
     include('../includes/navbar.php'); ?>

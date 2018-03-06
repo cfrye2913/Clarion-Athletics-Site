@@ -1,3 +1,7 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: When this file is included, it will pull all images from the
+    CarouselImages folder and display them in a carousel-->
 <?php
     //File to populate the carousel with all images from the Carousel Image folder
     //get a directory handle to the carousel images

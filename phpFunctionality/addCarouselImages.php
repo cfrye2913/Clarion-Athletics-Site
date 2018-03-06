@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: This file handles image uploads from the admin page-->
 <?php
     $title = "Image Uploaded";
     require("../includes/navbar.php");
@@ -21,7 +24,8 @@
         //This file size is specified in php.ini
         elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
         {
-            echo "This file is too large to be uploaded";
+            echo "This file is too large to be uploaded <br>";
+            echo "Click <a href = '../pages/admin.php'>here</a> to return to the admin page";
         }
         else {
 
@@ -37,7 +41,8 @@
             //check that the image is of an appropriate type
             if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                 $imageType != IMAGETYPE_PNG) {
-                echo "Only gifs, jpegs, and png files are supported.";
+                echo "Only gifs, jpegs, and png files are supported. <br>";
+                echo "Click <a href = '../pages/admin.php'>here</a> to return to the admin page";
             } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                 echo "<p> $message; </p>";
             }

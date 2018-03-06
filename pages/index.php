@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Redirect the user to the home page-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,6 @@
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: Display training videos to the user-->
 <?php
     $title = "Videos - Clarion Athletics Website";
     require('../includes/navbar.php'); ?>
