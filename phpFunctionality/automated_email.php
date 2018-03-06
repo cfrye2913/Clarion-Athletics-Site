@@ -9,7 +9,7 @@
     //subject
     $subject = "Test";
     //content
-    $body = "<h1> Hello </h1>";
+    $body = file_get_contents("../resourceFiles/newsletter.html");
     //SMTP server name, port, user password
     $smtpinfo["host"] = "ssl://smtp.gmail.com";
     $smtpinfo["port"] ="465";

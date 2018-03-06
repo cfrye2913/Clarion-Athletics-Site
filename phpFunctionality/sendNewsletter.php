@@ -1,5 +1,5 @@
 <?php
-    $emailPath = "../txtFiles/email.csv";
+    $emailPath = "../resourceFiles/email.csv";
     $emailFile = fopen($emailPath, "r");
     //Gets the email field from the CSV file
     while(($newsletterInfo = fgetcsv($emailFile)) !== FALSE)
