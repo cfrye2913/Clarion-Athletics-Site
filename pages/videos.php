@@ -20,11 +20,7 @@
             <h2> Bench Press </h2>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/rT7DgCr-3pg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-
-        <form action = "../phpFunctionality/uploadQuoteFile.php" method = "post">
-
-            <input type = "submit" value = "upload" class = "btn btn-color-clarionBlue mt-3 text-white"/>
-        </form>
+        
 
         <?php $myfile = fopen("../resourceFiles/quotes.txt", "r") or die("Unable to open file!");
         // Output one line until end-of-file
