@@ -1,5 +1,5 @@
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
-    Last Modified: 2/23/2018
+    Last Modified: 3/7/2018
     Purpose: Send out an automated email when this file is used-->
 <?php
 ;

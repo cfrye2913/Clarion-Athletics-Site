@@ -1,1 +1,5 @@
-Quotes
+This is a text file.
+This is a test file.
+The name of this file is New Text Document.txt
+This should be saved in our project as quotes.txt
+This should be displayed on the video page.

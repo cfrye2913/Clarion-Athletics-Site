@@ -14,7 +14,7 @@
     //index of the email within the email csv file
     $EMAIL_INDEX = 2;
     //Path for email file
-    $emailPath = "../txtFiles/email.csv";
+    $emailPath = "../resourceFiles/email.csv";
     //Grabs fields from text boxes
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
@@ -47,15 +47,14 @@
     $fields = array($firstName, $lastName, $email, $sport);
     fputcsv($emailFile, $fields);
     $sport = strtolower($sport);
-    echo  "Welcome, $firstName $lastName! We will try to send you news letters relevant to $sport.";
     fclose($emailFile);
-?>
 
     if(in_array($email, $currentEmails) && $validEmail === true)
     {
         echo "This email is already signed up to receive our news letter. Please try again";
         $validEmail = false;
     }
+
     if($validEmail == true) {
         //Writes email,name, and sport to email file.
         $data = array($lastName, $firstName, $email, $sport);
