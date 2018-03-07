@@ -43,11 +43,6 @@
     }
     //Opens email file
     $emailFile = fopen($emailPath, "a");
-    //Writes email to email file. Each email is created on a new line.
-    $fields = array($firstName, $lastName, $email, $sport);
-    fputcsv($emailFile, $fields);
-    $sport = strtolower($sport);
-    fclose($emailFile);
 
     if(in_array($email, $currentEmails) && $validEmail === true)
     {
@@ -64,4 +59,5 @@
         //display message to user
         echo "Welcome, $firstName $lastName! We will try to send you newsletters relevant to $sport.";
     }
+    fclose($emailFile);
 ?>
