@@ -13,6 +13,8 @@
 <?php
     //index of the email within the email csv file
     $EMAIL_INDEX = 2;
+    //Path for email file
+    $emailPath = "../txtFiles/email.csv";
     //Grabs fields from text boxes
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
@@ -39,6 +41,15 @@
     {
        $currentEmails[] = $row[$EMAIL_INDEX];
     }
+    //Opens email file
+    $emailFile = fopen($emailPath, "a");
+    //Writes email to email file. Each email is created on a new line.
+    $fields = array($firstName, $lastName, $email, $sport);
+    fputcsv($emailFile, $fields);
+    $sport = strtolower($sport);
+    echo  "Welcome, $firstName $lastName! We will try to send you news letters relevant to $sport.";
+    fclose($emailFile);
+?>
 
     if(in_array($email, $currentEmails) && $validEmail === true)
     {
