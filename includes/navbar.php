@@ -31,7 +31,7 @@
 
     <div class="company-template"><nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
     <a class="navbar-brand" href="#">
-        <a href = '../pages/home.php'>
+        <a href = '../View/home.php'>
             <img class = 'img-responsive' src="../Images/Clarion_Golden_Eagles_logo.png" alt = "Clarion Athletics" width = '60px' height = '30px'>
         </a>
     </a>
@@ -42,19 +42,19 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="btn" href="../pages/home.php">Home <span class="sr-only">(current)</span></a>
+                <a class="btn" href="../View/home.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../pages/training.php">Training</a>
+                <a class="btn" href="../View/training.php">Training</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../pages/videos.php">Videos</a>
+                <a class="btn" href="../View/videos.php">Videos</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../pages/help.php">Help</a>
+                <a class="btn" href="../View/help.php">Help</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../pages/admin.php">Admin</a>
+                <a class="btn" href="../View/admin.php">Admin</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
@@ -73,22 +73,22 @@
                 </div>-->
 
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Baseball</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Basketball</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Cross Country</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Football</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Golf</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Soccer</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Softball</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Swimming & Diving</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Tennis</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Volleyball</a>
-                    <a class="dropdown-item" href="../pages/UnderConstruction.php">Wrestling</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Baseball</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Basketball</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Cross Country</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Football</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Golf</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Soccer</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Softball</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Swimming & Diving</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Tennis</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Volleyball</a>
+                    <a class="dropdown-item" href="../View/UnderConstruction.php">Wrestling</a>
                 </div>
             </li>
         </ul>
-        <a class="d-inline btn" href = '../pages/login.php'>Login/Sign Up</a>
-        <a class="d-inline btn" href = '../pages/newsLetter.php'>News Letter</a>
+        <a class="d-inline btn" href = '../View/login.php'>Login/Sign Up</a>
+        <a class="d-inline btn" href = '../View/newsLetter.php'>News Letter</a>
         <!--<div class = "container my-2 my-lg-0"> Login/Sign up</div> -->
         <!--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

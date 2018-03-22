@@ -12,7 +12,7 @@
         <h1>Sign up for our weekly news letter!</h1>
         <div class = "col-6 offset-3 text-left">
 
-            <form action = "../phpFunctionality/processNewsLetterSignUp.php" method = "post">
+            <form action = "../Controller/processNewsLetterSignUp.php" method = "post">
 
                 <label for="firstName">First Name: </label>
                 <input type = "text" class = "form-control" id="firstName" name = "firstName" required> <br/>

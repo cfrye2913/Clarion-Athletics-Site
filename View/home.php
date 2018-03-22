@@ -12,7 +12,7 @@
         populated using all images from
         ../Images/CarouselImages/-->
       <?php
-      include("../phpFunctionality/populateCarousel.php");
+      include("../includes/CarouselInclude.php");
       ?>
 
 

@@ -25,7 +25,7 @@
         elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
         {
             echo "This file is too large to be uploaded <br>";
-            echo "Click <a href = '../pages/admin.php'>here</a> to return to the admin page";
+            echo "Click <a href = '../View/admin.php'>here</a> to return to the admin page";
         }
         else {
 
@@ -42,7 +42,7 @@
             if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                 $imageType != IMAGETYPE_PNG) {
                 echo "Only gifs, jpegs, and png files are supported. <br>";
-                echo "Click <a href = '../pages/admin.php'>here</a> to return to the admin page";
+                echo "Click <a href = '../View/admin.php'>here</a> to return to the admin page";
             } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                 echo "<p> $message; </p>";
             }
