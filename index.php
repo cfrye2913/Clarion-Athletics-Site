@@ -11,7 +11,7 @@
     }
     else
     {
-        include('../View/index.php');
+        include('View/home.php');
         exit();
     }
 
@@ -19,28 +19,28 @@
     switch($action)
     {
         case 'admin':
-            include '../View/admin.php';
+            include 'View/admin.php';
             break;
         case 'help':
-            include '../View/help.php';
+            include 'View/help.php';
             break;
         case 'login':
-            include '../View/login';
+            include 'View/login.php';
             break;
         case 'newsletter':
-            include '../View/newsLetter.php';
+            include 'View/newsLetter.php';
             break;
         case 'training':
-            include '../View/training.php';
+            include 'View/training.php';
             break;
         case 'underConstruction':
-            include '../View/UnderConstruction.php';
+            include 'View/UnderConstruction.php';
             break;
         case 'videos':
-            include '../View/videos.php';
+            include 'View/videos.php';
             break;
         default:
-            include '../View/home.php';
+            include 'View/home.php';
             break;
     }
 

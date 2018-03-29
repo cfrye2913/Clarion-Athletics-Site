@@ -5,7 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <?php
     $title = "Training - Clarion University Athletics";
-    include('../includes/navbar.php'); ?>
+    include('includes/navbar.php'); ?>
 
     <div class = "company-template"><!--Container-->
 
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <?php include("../includes/footer.php") ?>
+        <?php include("includes/footer.php") ?>
     </div><!-- /.container -->
 
 

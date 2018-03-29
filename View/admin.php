@@ -4,7 +4,7 @@
     website without editing the source code of the site-->
 <?php
 $title = "Admin Page - Clarion Athletics Site";
-include("../includes/navbar.php"); ?>
+include("includes/navbar.php"); ?>
 
 
     <div class="company-template">
@@ -27,7 +27,7 @@ include("../includes/navbar.php"); ?>
             <!--Show all of the image file names that are currently in the directory-->
             <?php
             //Image Path
-            $imageDirName = "../Images/CarouselImages/";
+            $imageDirName = "Images/CarouselImages/";
             //Get all images from the directory and store them in an array
             $imageArray = scandir($imageDirName);
             //loop through the array and display all of the image names
@@ -70,5 +70,5 @@ include("../includes/navbar.php"); ?>
     </div>
 
 <?php
-    include("../includes/footer.php");
+    include("includes/footer.php");
 ?>

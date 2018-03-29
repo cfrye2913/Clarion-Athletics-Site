@@ -3,7 +3,7 @@
     Purpose: Simple form to allow the user to sign up for a newsletter-->
 <?php
     $title = "Newsletter Signup - Clarion Athletics Website";
-    include('../includes/navbar.php'); ?>
+    include('includes/navbar.php'); ?>
 
 <div class="container mb-5">
 
@@ -32,4 +32,4 @@
     </div>
 
 
-    <?php include("../includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>

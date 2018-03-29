@@ -3,7 +3,7 @@
     Purpose: Display training videos to the user-->
 <?php
     $title = "Videos - Clarion Athletics Website";
-    require('../includes/navbar.php'); ?>
+    require('includes/navbar.php'); ?>
     <div class="container">
         <div class="company-template">
             <h1>Video Page</h1>
@@ -22,7 +22,7 @@
         </div>
         
 
-        <?php $myfile = fopen("../resourceFiles/quotes.txt", "r") or die("Unable to open file!");
+        <?php $myfile = fopen("resourceFiles/quotes.txt", "r") or die("Unable to open file!");
         // Output one line until end-of-file
         while(!feof($myfile)) {
 
@@ -31,4 +31,4 @@
         fclose($myfile);
         ?>
 
-    <?php require("../includes/footer.php") ?>
+    <?php require("includes/footer.php") ?>

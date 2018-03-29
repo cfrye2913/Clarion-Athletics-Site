@@ -4,7 +4,7 @@
 <?php
     //set the title and include the header
     $title = "Help - Clarion Athletics Website";
-    require('../includes/navbar.php'); ?>
+    require('includes/navbar.php'); ?>
 
 <div class = "jumbotron">
           <h1>About</h1>
@@ -57,4 +57,4 @@
       </script>
 
 
-      <?php require("../includes/footer.php")?>
+      <?php require("includes/footer.php")?>

@@ -5,7 +5,7 @@
 <?php
     //File to populate the carousel with all images from the Carousel Image folder
     //get a directory handle to the carousel images
-    $dirPath = "../Images/CarouselImages";
+    $dirPath = "Images/CarouselImages";
 
 
     //open and read the directory

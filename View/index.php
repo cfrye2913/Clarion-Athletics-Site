@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Refresh" content="0;url=./home.html">
+    <meta http-equiv="Refresh" content="0;url=./home.php">
     <title>Redirect Page</title>
 </head>
 <body>
