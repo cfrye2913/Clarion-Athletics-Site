@@ -963,62 +963,91 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="243" parent="2" name="member">
+    <table id="243" parent="2" name="image">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="244" parent="2" name="sport">
+    <table id="244" parent="2" name="member">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="245" parent="243" name="member_id">
+    <table id="245" parent="2" name="sports">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="246" parent="243" name="image_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="243" name="fname">
+    <column id="247" parent="243" name="image_path">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="248" parent="243" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>image_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="249" parent="244" name="member_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="244" name="fname">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="243" name="lname">
+    <column id="251" parent="244" name="lname">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="243" name="signupdate">
+    <column id="252" parent="244" name="signupdate">
       <Position>4</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="243" name="sport">
+    <column id="253" parent="244" name="sport">
       <Position>5</Position>
-      <DataType>tinyint(32)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="243" name="email">
+    <column id="254" parent="244" name="email">
       <Position>6</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="243" name="PRIMARY">
+    <index id="255" parent="244" name="member_sport_fk">
+      <ColNames>sport</ColNames>
+    </index>
+    <key id="256" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>member_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="252" parent="244" name="sport_num">
+    <foreign-key id="257" parent="244" name="member_sport_fk">
+      <ColNames>sport</ColNames>
+      <RefSchemaName>athletics_db</RefSchemaName>
+      <RefTableName>sports</RefTableName>
+      <RefColNames>sport_num</RefColNames>
+    </foreign-key>
+    <column id="258" parent="245" name="sport_num">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="244" name="sport_name">
+    <column id="259" parent="245" name="sport_name">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="244" name="PRIMARY">
+    <key id="260" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sport_num</ColNames>
       <Primary>1</Primary>
