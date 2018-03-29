@@ -15,7 +15,7 @@
     <link rel="icon" href="favicon.ico">
 
 
-    <title><?php echo $title?></title>
+    <title> <?php echo $title?> </title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -31,7 +31,7 @@
 
     <div class="company-template"><nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
     <a class="navbar-brand" href="#">
-        <a href = '../View/home.php'>
+        <a href = '../controller/controller.php?action=home'>
             <img class = 'img-responsive' src="../Images/Clarion_Golden_Eagles_logo.png" alt = "Clarion Athletics" width = '60px' height = '30px'>
         </a>
     </a>
@@ -42,19 +42,19 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="btn" href="../View/home.php">Home <span class="sr-only">(current)</span></a>
+                <a class="btn" href="../controller/controller.php?action=home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../View/training.php">Training</a>
+                <a class="btn" href="../controller/controller.php?action=training">Training</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../View/videos.php">Videos</a>
+                <a class="btn" href="../controller/controller.php?action=videos">Videos</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../View/help.php">Help</a>
+                <a class="btn" href="../controller/controller.php?action=help">Help</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="../View/admin.php">Admin</a>
+                <a class="btn" href="../controller/controller.php?action=admin">Admin</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
