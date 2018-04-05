@@ -12,7 +12,7 @@
         <h1>Sign up for our weekly news letter!</h1>
         <div class = "col-6 offset-3 text-left">
 
-            <form action = "../Controller/processNewsLetterSignUp.php" method = "post">
+            <form action = "../index.php?action=process_newsletter_signup" method = "post">
 
                 <label for="firstName">First Name: </label>
                 <input type = "text" class = "form-control" id="firstName" name = "firstName" required> <br/>
@@ -26,6 +26,9 @@
                 <label for = "sport">Sport:</label>
                 <input type = "text" class = "form-control" id = "sport" name = "sport" required>
 
+                <label class="btn btn-outline-secondary btn-sm">
+                    <input name="receive_newsletter" = "receive_newsletters" type="checkbox" autocomplete="off"> Receive Newsletters
+                </label>
                 <input type = "submit" value = "Sign Up" class = "btn btn-color-clarionBlue mt-3 text-white"/>
             </form>
         </div>

@@ -26,6 +26,11 @@ class Member{
      * @var DateTime
      */
     public $dateRegistered;
+
+    /**
+     * @var int
+     */
+    public $receive_newsletter;
 }
 
 //class that represents a sport
@@ -68,15 +73,17 @@ function _getConnection() {
 
 function insertMember(\Member $member){
     $db = _getConnection();
-    $query = "INSERT INTO `member` (fname, lname, signupdate, sport, email) 
-          VALUES (:fname, :lname, :signupdate, :sport, :email)";
+    $query = "INSERT INTO `member` (`fname`, `lname`, `signupdate`, `sport`, `email`, `receive_newsletters`) 
+          VALUES (:fname, :lname, :signupdate, :sport, :email, :receive_newsletters)";
     $statement = $db->prepare($query);
 
     $statement->bindValue(':fname', $member->FName);
     $statement->bindValue(':lname', $member->LName);
-    $statement->bindValue(':signupdate', $member->dateRegistered);
+    $statement->bindValue(':signupdate', date('Y-m-d', strtotime("now")));
+    //$statement->bindValue(':signupdate', $member->dateRegistered);
     $statement->bindValue(':sport', $member->sport);
     $statement->bindValue(':email', $member->email);
+    $statement->bindValue(':receive_newsletters', $member->receive_newsletter);
 
     $success = $statement->execute();
     $statement->closeCursor();

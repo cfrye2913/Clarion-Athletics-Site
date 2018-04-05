@@ -969,7 +969,7 @@
     <table id="244" parent="2" name="member">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="245" parent="2" name="sports">
+    <table id="245" parent="2" name="sport">
       <Engine>InnoDB</Engine>
     </table>
     <column id="246" parent="243" name="image_id">
@@ -1018,36 +1018,41 @@
     </column>
     <column id="254" parent="244" name="email">
       <Position>6</Position>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="255" parent="244" name="member_sport_fk">
+    <column id="255" parent="244" name="receive_newsletters">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="256" parent="244" name="member_sport_fk">
       <ColNames>sport</ColNames>
     </index>
-    <key id="256" parent="244" name="PRIMARY">
+    <key id="257" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>member_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="257" parent="244" name="member_sport_fk">
+    <foreign-key id="258" parent="244" name="member_sport_fk">
       <ColNames>sport</ColNames>
       <RefSchemaName>athletics_db</RefSchemaName>
-      <RefTableName>sports</RefTableName>
+      <RefTableName>sport</RefTableName>
       <RefColNames>sport_num</RefColNames>
     </foreign-key>
-    <column id="258" parent="245" name="sport_num">
+    <column id="259" parent="245" name="sport_num">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="245" name="sport_name">
+    <column id="260" parent="245" name="sport_name">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="260" parent="245" name="PRIMARY">
+    <key id="261" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sport_num</ColNames>
       <Primary>1</Primary>

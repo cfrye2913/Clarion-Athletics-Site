@@ -1,4 +1,5 @@
 <?php
+    require_once ('Model/mysql.php');
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -15,6 +16,23 @@
         exit();
     }
 
+    //Determines if a button is checked
+    function IsChecked($chkname,$value)
+    {
+        if(!empty($_POST[$chkname]))
+        {
+            foreach($_POST[$chkname] as $chkval)
+            {
+                if($chkval == $value)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     //Determines which page to go to based on the action
     switch($action)
     {
@@ -30,6 +48,18 @@
         case 'newsletter':
             include 'View/newsLetter.php';
             break;
+        case 'process_newsletter_signup':
+            //print_r($_POST);
+            //die();
+            $member = new \Member();
+            $member->FName = $_POST['firstName'];
+            $member->LName = $_POST['lastName'];
+            $member->email = $_POST['email'];
+            $member->sport = $_POST['sport'];
+            $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
+            print_r($member);
+            die();
+            insertMember($member);
         case 'training':
             include 'View/training.php';
             break;
