@@ -49,17 +49,15 @@
             include 'View/newsLetter.php';
             break;
         case 'process_newsletter_signup':
-            //print_r($_POST);
-            //die();
             $member = new \Member();
             $member->FName = $_POST['firstName'];
             $member->LName = $_POST['lastName'];
             $member->email = $_POST['email'];
             $member->sport = $_POST['sport'];
             $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
-            print_r($member);
-            die();
             insertMember($member);
+            require_once 'View/home.php';
+            break;
         case 'training':
             include 'View/training.php';
             break;

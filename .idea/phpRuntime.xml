@@ -81,7 +81,6 @@
       <extension name="win32service" enabled="false" />
       <extension name="wincache" enabled="false" />
       <extension name="xcache" enabled="false" />
-      <extension name="xdebug" enabled="false" />
       <extension name="xhprof" enabled="false" />
       <extension name="xmlrpc" enabled="false" />
       <extension name="xsl" enabled="false" />

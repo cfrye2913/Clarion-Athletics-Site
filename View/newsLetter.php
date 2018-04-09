@@ -3,10 +3,36 @@
     Purpose: Simple form to allow the user to sign up for a newsletter-->
 <?php
     $title = "Newsletter Signup - Clarion Athletics Website";
-    include('includes/navbar.php'); ?>
+    include('includes/navbar.php');
+    ?>
 
 <div class="container mb-5">
 
+    <script>
+        document.ready(function()
+        {
+            $.ajax({
+                type:'GET',
+                url:'<?=$config['webRoot']?>index.php?path=/api/employee',
+                dataType:'json',
+                statusCode: {
+                    401: function () {
+                        window.location.href = "./index.php?path=/login";
+                    }
+                }
+            }).done(function (data, textStatus, jqXHR) {
+                var acc = "";
+                employees = data;
+                for (var i = 0; i < data.length; i++) {
+                    var name =  data[i].firstName + ' ' + data[i].lastName;
+                    acc += '<option>' + name + '</option>';
+                }
+                employeeDatalist.html(acc);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+            });
+        });
+
+    </script>
     <!--Content-->
     <div class = "clarion-blue text-center company-template">
         <h1>Sign up for our weekly news letter!</h1>
@@ -24,8 +50,14 @@
                 <input type = "email" class = "form-control" id = "email" name = "email" required><br/>
 
                 <label for = "sport">Sport:</label>
-                <input type = "text" class = "form-control" id = "sport" name = "sport" required>
-
+                <select class = "form-control" id = "sport" name = "sport" required>
+                    <?php
+                        $parsedResults = getSports();
+                        foreach($parsedResults as $row):
+                    ?>
+                        <option> <?=$row['sport_name']; ?> </option>
+                    <?php endforeach; ?>
+                    
                 <label class="btn btn-outline-secondary btn-sm">
                     <input name="receive_newsletter" = "receive_newsletters" type="checkbox" autocomplete="off"> Receive Newsletters
                 </label>
