@@ -63,6 +63,118 @@
         case 'training':
             include 'View/training.php';
             break;
+        case 'add_image':
+            $title = "Image Uploaded";
+            require("./includes/navbar.php");
+            //get the file image and store the path that we want to store it at
+            $uploadFile = "./Images/CarouselImages/" . $_FILES['userFile']['name'];
+            //check that a file was uploaded
+            //if the file already exists, we will replace it
+            if(file_exists($uploadFile)){
+                $message = "A file with this name already exists. This file was replaced.";
+            }
+            else{
+                $message = "Image was uploaded successfully";
+            }
+
+            //check that a file was uploaded
+            if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE) {
+                echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
+                    document.location.href = \"../pages/admin.php\"</script>";
+            }
+            //check if the file exceeds the maximum upload file size
+            //This file size is specified in php.ini
+            elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
+            {
+                echo "This file is too large to be uploaded <br>";
+                echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+            }
+            else {
+
+                //get image width and height
+                //check to make sure image width and height is similar to size
+                //used in carousel
+                $imageInfo = getimagesize($_FILES['userFile']['tmp_name']);
+                $imageWidth = $imageInfo[0];
+                $imageHeight = $imageInfo[1];
+                $imageType = $imageInfo[2];
+
+
+                //check that the image is of an appropriate type
+                if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
+                    $imageType != IMAGETYPE_PNG) {
+                    echo "Only gifs, jpegs, and png files are supported. <br>";
+                    echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+                } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
+                    echo "<p> $message; </p>";
+                }
+            }
+            break;
+        case 'add_quote_file':
+            //set a title
+            $title = "News Letter Sign Up";
+            //include the navbar
+            require './includes/navbar.php';
+            echo '<h1>Upload a New Quotes File</h1>';
+            //specify the file path that the text file will be stored at
+            $targetfile = './resourceFiles/quotes.txt';
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            //check if a file was submitted
+            if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE)
+            {
+                echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
+                    document.location.href = \"./pages/admin.php\"</script>";
+            }
+            //Check the file type
+            elseif(finfo_file($finfo, $_FILES['userFile']['tmp_name']) != "text/plain")
+            {
+                $message = 'Incorrect file type';
+            }
+            elseif(file_exists($targetfile))//check if the file already exists
+            {
+                $message = 'A file with this name already existed. It was replaced.';
+                move_uploaded_file($_FILES['userFile']['tmp_name'], $targetfile);
+            }
+            else {//move the file
+                $message = 'File uploaded successfully';
+                move_uploaded_file($_FILES['userFile']['tmp_name'], $targetfile);
+            }
+
+            finfo_close($finfo);
+            echo $message;
+            break;
+        case 'upload_newsletter':
+            //set a title
+            $title = "Newsletter Upload";
+            //include the navbar
+            //specify the file path that the text file will be stored at
+            $targetfile = './resourceFiles/newsletter.html';
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            //check if a file was submitted
+            if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE)
+            {
+                echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
+                        document.location.href = \"./pages/admin.php\"</script>";
+            }
+            //Check the file type
+            elseif(finfo_file($finfo, $_FILES['userFile']['tmp_name']) != "text/plain")
+            {
+                $message = 'Incorrect file type';
+            }
+            elseif(file_exists($targetfile))//check if the file already exists
+            {
+                $message = 'A file with this name already existed. It was replaced.';
+                move_uploaded_file($_FILES['userFile']['tmp_name'], $targetfile);
+            }
+            else {//move the file
+                $message = 'File uploaded successfully';
+                move_uploaded_file($_FILES['userFile']['tmp_name'], $targetfile);
+            }
+
+            finfo_close($finfo);
+            echo $message;
+            require './includes/navbar.php';
+            break;
         case 'underConstruction':
             include 'View/UnderConstruction.php';
             break;

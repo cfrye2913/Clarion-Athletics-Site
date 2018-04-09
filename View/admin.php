@@ -14,7 +14,7 @@ include("includes/navbar.php"); ?>
             <h3 class = "mt-3">Add an image</h3>
             <!--Form to upload images to be added to the carousel-->
             <form enctype="multipart/form-data"
-                  action = "../Controller/addCarouselImages.php"
+                  action = "../index.php?action=add_image"
                   method = "post"
                   class = "row">
                 <div class = "col-6 text-right">Select an image to add to the home page:</div>
@@ -45,7 +45,7 @@ include("includes/navbar.php"); ?>
         <h3 class = "mt-3">Add a quote file</h3>
         <!--Form to upload a text file of quotes-->
         <form enctype="multipart/form-data"
-              action = "../Controller/uploadQuoteFile.php"
+              action = "../index.php?action=add_quote_file"
               method = "post"
               class = "row">
             <div class = "col-6 text-right">Select a new quotes file:</div>
@@ -57,7 +57,7 @@ include("includes/navbar.php"); ?>
         <!--Form to upload an html file for the automated email
              and a form to send the email-->
         <form enctype="multipart/form-data"
-              action = "../Controller/uploadNewsletter.php"
+              action = "../index.php?action=upload_newsletter"
               method = "post"
               class = "row">
             <div class = "col-6 text-right">Select a newsletter file (HTML format):</div>
