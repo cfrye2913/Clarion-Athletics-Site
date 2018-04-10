@@ -92,7 +92,6 @@ function insertMember(\Member $member){
 
 
     $success = $statement->execute();
-    $error = $statement->errorInfo();
     $statement->closeCursor();
     return $db->lastInsertId();
 }

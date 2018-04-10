@@ -4,8 +4,8 @@
     website without editing the source code of the site-->
 <?php
 $title = "Admin Page - Clarion Athletics Site";
-include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
+include("includes/navbar.php");
+require_once 'Model/mysql.php'?>
 
 
 <div class="company-template">
@@ -106,5 +106,5 @@ require_once './Model/mysql.php'?>
 </div>
 
 <?php
-include("./includes/footer.php");
+include("includes/footer.php");
 ?>

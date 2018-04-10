@@ -7,32 +7,6 @@
     ?>
 
 <div class="container mb-5">
-
-    <script>
-        document.ready(function()
-        {
-            $.ajax({
-                type:'GET',
-                url:'<?=$config['webRoot']?>index.php?path=/api/employee',
-                dataType:'json',
-                statusCode: {
-                    401: function () {
-                        window.location.href = "./index.php?path=/login";
-                    }
-                }
-            }).done(function (data, textStatus, jqXHR) {
-                var acc = "";
-                employees = data;
-                for (var i = 0; i < data.length; i++) {
-                    var name =  data[i].firstName + ' ' + data[i].lastName;
-                    acc += '<option>' + name + '</option>';
-                }
-                employeeDatalist.html(acc);
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-            });
-        });
-
-    </script>
     <!--Content-->
     <div class = "clarion-blue text-center company-template">
         <h1>Sign up for our weekly news letter!</h1>

@@ -36,34 +36,6 @@
     //Determines which page to go to based on the action
     switch($action)
     {
-        case 'admin':
-            include 'View/admin.php';
-            break;
-        case 'help':
-            include 'View/help.php';
-            break;
-        case 'login':
-            include 'View/login.php';
-            break;
-        case 'newsletter':
-            include 'View/newsLetter.php';
-            break;
-        case 'members':
-            include 'View/members.php';
-            break;
-        case 'process_newsletter_signup':
-            $member = new \Member();
-            $member->FName = $_POST['firstName'];
-            $member->LName = $_POST['lastName'];
-            $member->email = $_POST['email'];
-            $member->sport = $_POST['sport'];
-            $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
-            insertMember($member);
-            require_once 'View/home.php';
-            break;
-        case 'training':
-            include 'View/training.php';
-            break;
         case 'add_image':
             $title = "Image Uploaded";
             require("./includes/navbar.php");
@@ -114,6 +86,32 @@
                 }
             }
             break;
+        case 'add_sport':
+            $sport = new \Sport();
+            $allSports = getSports();
+            $sportsNames = [];
+            foreach ($allSports as $sports)
+            {
+                array_push($sportsNames, $sports['sport_name']);
+            }
+            if(isset($_POST['sportName'])) {
+                $sport->sportsName = $_POST['sportName'];
+                if(in_array($sport->sportsName, $sportsNames)) {
+                    $message = "Sport already exists in the database";
+                }
+                else {
+                    insertSport($sport);
+                    $message = "Sport added successfully";
+                }
+            }
+            else{
+                $message = 'No sport was entered. Please enter a sport and try again';
+            }
+            $title = 'Success';
+            include('./includes/navbar.php');
+            echo $message;
+            include('./includes/footer.php');
+            break;
         case 'add_quote_file':
             //set a title
             $title = "News Letter Sign Up";
@@ -147,6 +145,46 @@
             finfo_close($finfo);
             echo $message;
             break;
+        case 'admin':
+            include 'View/admin.php';
+            break;
+        case 'help':
+            include 'View/help.php';
+            break;
+        case 'login':
+            include 'View/login.php';
+            break;
+        case 'members':
+            include 'View/members.php';
+            break;
+        case 'member_details':
+            if(isset($_GET)) {
+                $member_id = $_GET['member_id'];
+                include('./View/member_details.php');
+            }
+            else{
+                $title = 'Success';
+                include('./includes/navbar.php');
+                echo 'There was a problem getting this member\'s information';
+                include('includes/footer.php');
+            }
+            break;
+        case 'newsletter':
+            include 'View/newsLetter.php';
+            break;
+        case 'process_newsletter_signup':
+            $member = new \Member();
+            $member->FName = $_POST['firstName'];
+            $member->LName = $_POST['lastName'];
+            $member->email = $_POST['email'];
+            $member->sport = $_POST['sport'];
+            $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
+            insertMember($member);
+            require_once 'View/home.php';
+            break;
+        case 'training':
+            include 'View/training.php';
+            break;
         case 'upload_newsletter':
             //set a title
             $title = "Newsletter Upload";
@@ -178,44 +216,6 @@
             finfo_close($finfo);
             echo $message;
             require './includes/navbar.php';
-            break;
-        case 'member_details':
-            if(isset($_GET)) {
-                $member_id = $_GET['member_id'];
-                include('./View/member_details.php');
-            }
-            else{
-                $title = 'Success';
-                include('./includes/navbar.php');
-                echo 'There was a problem getting this member\'s information';
-                include('includes/footer.php');
-            }
-            break;
-        case 'add_sport':
-            $sport = new \Sport();
-            $allSports = getSports();
-            $sportsNames = [];
-            foreach ($allSports as $sports)
-            {
-                array_push($sportsNames, $sports['sport_name']);
-            }
-            if(isset($_POST['sportName'])) {
-                $sport->sportsName = $_POST['sportName'];
-                if(in_array($sport->sportsName, $sportsNames)) {
-                    $message = "Sport already exists in the database";
-                }
-                else {
-                    insertSport($sport);
-                    $message = "Sport added successfully";
-                }
-            }
-            else{
-                $message = 'No sport was entered. Please enter a sport and try again';
-            }
-            $title = 'Success';
-            include('./includes/navbar.php');
-            echo $message;
-            include('./includes/footer.php');
             break;
         case 'underConstruction':
             include 'View/UnderConstruction.php';
