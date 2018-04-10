@@ -47,3 +47,12 @@ nav a{
 .clickable{
     cursor: pointer;
 }
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #193B69;
+    color:white;
+    width: 100%;
+    text-align: center;
+}

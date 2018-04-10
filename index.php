@@ -108,6 +108,9 @@
                     echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
+                    $image = new \Image();
+                    $image->imagePath = $uploadFile;
+                    insertImage($image);
                 }
             }
             break;
@@ -182,10 +185,37 @@
                 include('./View/member_details.php');
             }
             else{
+                $title = 'Success';
                 include('./includes/navbar.php');
                 echo 'There was a problem getting this member\'s information';
                 include('includes/footer.php');
             }
+            break;
+        case 'add_sport':
+            $sport = new \Sport();
+            $allSports = getSports();
+            $sportsNames = [];
+            foreach ($allSports as $sports)
+            {
+                array_push($sportsNames, $sports['sport_name']);
+            }
+            if(isset($_POST['sportName'])) {
+                $sport->sportsName = $_POST['sportName'];
+                if(in_array($sport->sportsName, $sportsNames)) {
+                    $message = "Sport already exists in the database";
+                }
+                else {
+                    insertSport($sport);
+                    $message = "Sport added successfully";
+                }
+            }
+            else{
+                $message = 'No sport was entered. Please enter a sport and try again';
+            }
+            $title = 'Success';
+            include('./includes/navbar.php');
+            echo $message;
+            include('./includes/footer.php');
             break;
         case 'underConstruction':
             include 'View/UnderConstruction.php';

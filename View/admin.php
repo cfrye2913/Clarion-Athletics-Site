@@ -22,6 +22,9 @@ require_once './Model/mysql.php'?>
         <li class = "nav-item">
             <a class="nav-link" id="signup-tab" data-toggle="tab" href="#newsletter" role="tab" aria-controls="profile" aria-selected="false">Newsletter</a>
         </li>
+        <li class = "nav-item">
+            <a class="nav-link" id="signup-tab" data-toggle="tab" href="#sports" role="tab" aria-controls="profile" aria-selected="false">Sports</a>
+        </li>
     </ul>
     <!-- Tab content selectable through pills -->
     <div class = "tab-content col-10 mx-auto">
@@ -84,6 +87,19 @@ require_once './Model/mysql.php'?>
             <form action="../Controller/sendNewsletter.php" method="get">
                 <input type="submit" value="Send newsletter" class = "btn-danger">
             </form>
+        </div>
+        <div id = "sports" class = "tab-pane fade jumbotron" role = "tabpanel" aria-labelledby="signup-tab">
+            <h3 class = "mt-3">Add a sport</h3>
+            <form enctype="multipart/form-data"
+                  action = "./index.php?action=add_sport"
+                  method = "post"
+                  class = "row">
+                <div class = "form-row mx-auto">
+                    Sport Name: <input class = "form-control" type = "text" name = "sportName" required />
+                    <input class = "form-control" type = "submit" value = "Add Sport">
+                </div>
+            </form>
+
         </div>
     </div>
 

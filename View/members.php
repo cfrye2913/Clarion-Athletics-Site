@@ -18,6 +18,7 @@ require_once './Model/mysql.php'?>
         <th scope="col" onclick = "sort(1)" class = "clickable">Last</th>
         <th scope="col" onclick = "sort(2)" class = "clickable">Sport</th>
         <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
+        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
     </tr>
     </thead>
     <tbody>
@@ -29,7 +30,7 @@ require_once './Model/mysql.php'?>
             echo "There are currently no members signed up.";
         elseif(count($members) === 1) {
             $member_id = $members[0];
-            include('./member_details.php');
+            include('./member_details.php');//TODO this wont work, relative addressing
         }
         else {
             foreach ($members as $member) {

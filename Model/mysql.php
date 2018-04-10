@@ -187,7 +187,7 @@ function getSportIdByName($sport_name)
 }
 //Parses the results of the sports query
 function sportFromRow($result){
-    $sport = new \sport();
+    $sport = new \Sport();
 
     $sport->sportsNum = $result['sport_num'];
     $sport->sportsName = $result['sport_name'];
@@ -205,5 +205,29 @@ function insertImage(\Image $image){
     $statement->closeCursor();
 
     return $db->lastInsertId();
+}
+
+const IMAGE_QUERY = 'SELECT `image_id`, `image_path` FROM image';
+
+function _imageFromRow($result){
+    $image = new \Image();
+
+    $image->imageId = $result['image_id'];
+    $image->imagePath = $result['image_path'];
+
+    return $image;
+}
+
+function getImage($id){
+    $db = _getConnection();
+    $query = IMAGE_QUERY . ' WHERE image_id = :imageId';
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':imageId', $id);
+
+    $success = $statement->execute();
+    $result = $statement->fetch();
+
+    return _imageFromRow($result);
 }
 ?>
