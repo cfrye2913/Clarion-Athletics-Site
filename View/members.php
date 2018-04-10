@@ -12,7 +12,7 @@ require_once './Model/mysql.php'?>
     <!--If adding a new column to the table, you must add an onclick of sort()
         and pass in the column number starting at 0. This calls the sort function
         in tableOperations.js-->
-    <thead>
+    <!--<thead>
     <tr>
         <th scope="col" onclick = "sort(0)" class = "clickable">First</th>
         <th scope="col" onclick = "sort(1)" class = "clickable">Last</th>
@@ -21,7 +21,7 @@ require_once './Model/mysql.php'?>
         <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody>-->
         <?php
         $member = [];
         $members = getAllMembers();
@@ -29,10 +29,20 @@ require_once './Model/mysql.php'?>
         if(count($members) <= 0)
             echo "There are currently no members signed up.";
         elseif(count($members) === 1) {
-            $member_id = $members[0];
-            include('./member_details.php');//TODO this wont work, relative addressing
+            $member_id = $members[0]->memberId;
+            include('member_details.php');
         }
         else {
+            echo '<thead>
+    <tr>
+        <th scope="col" onclick = "sort(0)" class = "clickable">First</th>
+        <th scope="col" onclick = "sort(1)" class = "clickable">Last</th>
+        <th scope="col" onclick = "sort(2)" class = "clickable">Sport</th>
+        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
+        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
+    </tr>
+    </thead>
+    <tbody>';
             foreach ($members as $member) {
                 echo '<tr>';
                 echo '<td scope = \"col\">' . $member->FName . '</td>';
@@ -43,8 +53,9 @@ require_once './Model/mysql.php'?>
                 echo '</tr>';
             }
         }
+        echo '</tbody>';
         ?>
-    </tbody>
+
 </table>
 
 

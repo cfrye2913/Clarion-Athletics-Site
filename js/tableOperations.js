@@ -11,9 +11,15 @@ function search() {
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        fname = tr[i].getElementsByTagName("td")[0];
+        lname = tr[i].getElementsByTagName("td")[1];
+        sport = tr[i].getElementsByTagName("td")[2];
+        email = tr[i].getElementsByTagName("td")[3];
+        if (fname && lname && email && sport) {
+            if (fname.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+                lname.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+                sport.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+                email.innerHTML.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
@@ -21,6 +27,7 @@ function search() {
         }
     }
 }
+
 
 //sort
 //params: integer: represents the table heading that has been clicked
