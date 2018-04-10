@@ -1,5 +1,6 @@
 <?php
     require_once ('Model/mysql.php');
+    require_once "Mail.php";
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -160,11 +161,11 @@
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
-                include('./View/member_details.php');
+                include('View/member_details.php');
             }
             else{
                 $title = 'Success';
-                include('./includes/navbar.php');
+                include('includes/navbar.php');
                 echo 'There was a problem getting this member\'s information';
                 include('includes/footer.php');
             }
@@ -180,7 +181,43 @@
             $member->sport = $_POST['sport'];
             $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
             insertMember($member);
-            require_once 'View/home.php';
+            include ("includes/navbar.php");
+            echo("Signup successful");
+            include("includes/footer.php");
+            break;
+        case 'send_newsletter':
+            $emails = getNewsletterMembersEmails();
+            $from  = "cubeckerlab@gmail.com";
+            $recipients = $emails;
+            $subject = "Test";
+
+            $body = file_get_contents("resourceFiles/newsletter.html");
+
+            //SMTP server information
+            $smtpinfo["host"] = "ssl://smtp.gmail.com";
+            $smtpinfo["port"] ="465";
+            $smtpinfo["auth"] = true;
+            $smtpinfo["username"] = "cubeckerlab@gmail.com";
+            //Password redacted for VCS purposes
+            $smtpinfo["password"] = "";
+
+            $headers = array(
+                'To' => $recipients,
+                'From' => $from,
+                'Subject' => $subject,
+                'MIME-Version' => 1,
+                'Content-type' => 'text/html;charset=iso-8859-1'
+            );
+            $smtp = Mail::factory('smtp', $smtpinfo);
+            $mail = $smtp->send($recipients, $headers, $body);
+            if(PEAR::isError($mail))
+            {
+                echo("<p>" . $mail->getMessage() . "</p>");
+            }
+            else
+            {
+                echo("<p>Message successfully sent!</p>");
+            }
             break;
         case 'training':
             include 'View/training.php';

@@ -33,7 +33,7 @@ require_once 'Model/mysql.php'?>
             <h3 class = "mt-3">Carousel Images</h3>
             <!--Form to upload images to be added to the carousel-->
             <form enctype="multipart/form-data"
-                  action = "../index.php?action=add_image"
+                  action = "index.php?action=add_image"
                   method = "post"
                   class = "row">
                 <div class = "col-6 text-right">Select an image to add to the home page:</div>
@@ -64,7 +64,7 @@ require_once 'Model/mysql.php'?>
             <h3 class = "mt-3">Add a quote file</h3>
             <!--Form to upload a text file of quotes-->
             <form enctype="multipart/form-data"
-                  action = "./index.php?action=add_quote_file"
+                  action = "index.php?action=add_quote_file"
                   method = "post"
                   class = "row">
                 <div class = "col-6 text-right">Select a new quotes file:</div>
@@ -77,21 +77,22 @@ require_once 'Model/mysql.php'?>
             <!--Form to upload an html file for the automated email
                  and a form to send the email-->
             <form enctype="multipart/form-data"
-                  action = "../index.php?action=upload_newsletter"
+                  action = "index.php?action=upload_newsletter"
                   method = "post"
                   class = "row">
                 <div class = "col-6 text-right">Select a newsletter file (HTML format):</div>
                 <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
                 <input type = "submit" value = "Upload Newsletter" class = "btn-primary ml-auto mr-auto mt-3 mb-3"/>
             </form>
-            <form action="../Controller/sendNewsletter.php" method="get">
+<!--            <a href = "index.php?action=send_newsletter" class = "btn-danger">Send Newsletter</a>-->
+            <form action="index.php?action=send_newsletter" method="post">
                 <input type="submit" value="Send newsletter" class = "btn-danger">
             </form>
         </div>
         <div id = "sports" class = "tab-pane fade jumbotron" role = "tabpanel" aria-labelledby="signup-tab">
             <h3 class = "mt-3">Add a sport</h3>
             <form enctype="multipart/form-data"
-                  action = "./index.php?action=add_sport"
+                  action = "index.php?action=add_sport"
                   method = "post"
                   class = "row">
                 <div class = "form-row mx-auto">

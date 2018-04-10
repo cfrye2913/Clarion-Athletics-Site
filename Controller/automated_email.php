@@ -2,7 +2,6 @@
     Last Modified: 3/7/2018
     Purpose: Send out an automated email when this file is used-->
 <?php
-;
     //Gets the mail php script
     require_once "Mail.php";
     //Sender

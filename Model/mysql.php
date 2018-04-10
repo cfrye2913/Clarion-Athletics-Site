@@ -95,6 +95,21 @@ function insertMember(\Member $member){
     $statement->closeCursor();
     return $db->lastInsertId();
 }
+//Gets the members that have elected to receive newsletters' emails
+function getNewsletterMembersEmails() {
+    $db = _getConnection();
+    $query = "SELECT `email` FROM `member` WHERE receive_newsletters = 1";
+    $statement = $db->prepare($query);
+
+    $success = $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    $parsedResults = [];
+    foreach ($results as $member){
+        array_push($parsedResults, $member['email']);
+    }
+    return $parsedResults;
+}
 
 const MEMBER_QUERY = 'SELECT `member_id`, `fname`, `lname`, `signupdate`, `sport`, `email`, `receive_newsletters`, `sport_name` FROM member';
 
