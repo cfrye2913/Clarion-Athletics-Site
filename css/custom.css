@@ -44,3 +44,6 @@ nav a{
     height: 400px;
     width: 100%;
 }
+.clickable{
+    cursor: pointer;
+}

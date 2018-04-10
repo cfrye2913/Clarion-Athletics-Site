@@ -48,6 +48,9 @@
         case 'newsletter':
             include 'View/newsLetter.php';
             break;
+        case 'members':
+            include 'View/members.php';
+            break;
         case 'process_newsletter_signup':
             $member = new \Member();
             $member->FName = $_POST['firstName'];
@@ -172,6 +175,17 @@
             finfo_close($finfo);
             echo $message;
             require './includes/navbar.php';
+            break;
+        case 'member_details':
+            if(isset($_GET)) {
+                $member_id = $_GET['member_id'];
+                include('./View/member_details.php');
+            }
+            else{
+                include('./includes/navbar.php');
+                echo 'There was a problem getting this member\'s information';
+                include('includes/footer.php');
+            }
             break;
         case 'underConstruction':
             include 'View/UnderConstruction.php';

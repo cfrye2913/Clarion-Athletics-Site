@@ -4,7 +4,8 @@
     website without editing the source code of the site-->
 <?php
 $title = "Admin Page - Clarion Athletics Site";
-include("./includes/navbar.php"); ?>
+include("./includes/navbar.php");
+require_once './Model/mysql.php'?>
 
 
 <div class="company-template">
@@ -25,7 +26,7 @@ include("./includes/navbar.php"); ?>
     <!-- Tab content selectable through pills -->
     <div class = "tab-content col-10 mx-auto">
         <!-- Carousel image -->
-        <div class="tab-pane active fade show" id="images" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
+        <div class="tab-pane active fade show jumbotron" id="images" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
             <h3 class = "mt-3">Carousel Images</h3>
             <!--Form to upload images to be added to the carousel-->
             <form enctype="multipart/form-data"
@@ -56,7 +57,7 @@ include("./includes/navbar.php"); ?>
             ?>
         </div>
         <!-- News Letters -->
-        <div id = "quotes" class = "tab-pane fade" role = "tabpanel" aria-labelledby="signup-tab">
+        <div id = "quotes" class = "tab-pane fade jumbotron" role = "tabpanel" aria-labelledby="signup-tab">
             <h3 class = "mt-3">Add a quote file</h3>
             <!--Form to upload a text file of quotes-->
             <form enctype="multipart/form-data"
@@ -68,7 +69,7 @@ include("./includes/navbar.php"); ?>
                 <input type = "submit" value = "Upload Text File" class = "btn-primary ml-auto mr-auto mt-3"/>
             </form>
         </div>
-        <div id = "newsletter" class = "tab-pane fade" role = "tabpanel" aria-labelledby="signup-tab">
+        <div id = "newsletter" class = "tab-pane fade jumbotron" role = "tabpanel" aria-labelledby="signup-tab">
             <h3 class = "mt-3">Add a news letter</h3>
             <!--Form to upload an html file for the automated email
                  and a form to send the email-->

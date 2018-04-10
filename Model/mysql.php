@@ -31,6 +31,10 @@ class Member{
      * @var int
      */
     public $receive_newsletter;
+    /**
+     * @var string
+     */
+    public $sport_name;//not used adding members, set when retrieving members from db
 }
 
 //class that represents a sport
@@ -91,6 +95,51 @@ function insertMember(\Member $member){
     $error = $statement->errorInfo();
     $statement->closeCursor();
     return $db->lastInsertId();
+}
+
+const MEMBER_QUERY = 'SELECT `member_id`, `fname`, `lname`, `signupdate`, `sport`, `email`, `receive_newsletters`, `sport_name` FROM member';
+
+function _memberFromRow($result){
+    $member = new \Member();
+
+    $member->memberId = $result['member_id'];
+    $member->FName = $result['fname'];
+    $member->LName = $result['lname'];
+    $member->dateRegistered = date_create_from_format('Y-m-d' ,$result['signupdate']);
+    $member->sport = $result['sport'];
+    $member->email = $result['email'];
+    $member->receive_newsletter = $result['receive_newsletters'] > 0;
+    $member->sport_name = $result['sport_name'];
+    return $member;
+}
+
+function getAllMembers(){
+    $db = _getConnection();
+    $query = MEMBER_QUERY . ' INNER JOIN sport ON member.sport = sport.sport_num';
+    $statement = $db->prepare($query);
+
+    $success = $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    $parsedResults = [];
+    foreach ($results as $result){
+        array_push($parsedResults, _memberFromRow($result));
+    }
+    return $parsedResults;
+}
+
+
+function getMemberById($id){
+    $db = _getConnection();
+    $query = MEMBER_QUERY . ' INNER JOIN sport ON member.sport = sport.sport_num WHERE member_id = :memberId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':memberId', $id);
+
+    $success = $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+
+    return _memberFromRow($result);
 }
 
 //Allows the administrator to insert a sport into the database

@@ -56,6 +56,9 @@
             <li class="nav-item">
                 <a class="btn" href="../index.php?action=admin">Admin</a>
             </li>
+            <li class="nav-item">
+                <a class="btn" href="../index.php?action=members">Members</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
                 <!--<div class="dropdown-menu" aria-labelledby="dropdown01">
