@@ -49,7 +49,7 @@ require_once './Model/mysql.php'?>
                 echo '<td scope = \"col\">' . $member->LName . '</td>';
                 echo '<td scope = \"col\">' . $member->sport_name . '</td>';
                 echo '<td scope = \"col\">' . $member->email . '</td>';
-                echo '<td scope = \"col\"> <form method = "post" action = "index.php?action=member_details&member_id='.$member->memberId.' "><input class = "form-control" type = "submit" value = "More..."/></form>';
+                echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="index.php?action=member_details&member_id='.$member->memberId.' ">More Info</a>';
                 echo '</tr>';
             }
         }

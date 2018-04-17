@@ -244,4 +244,19 @@ function getImage($id){
 
     return _imageFromRow($result);
 }
+function getAllImages(){
+    $db = _getConnection();
+    $query = IMAGE_QUERY;
+
+    $statement = $db->prepare($query);
+
+    $success = $statement->execute();
+    $results = $statement->fetchAll();
+
+    $parsedResults = [];
+    foreach($results as $result){
+        array_push($parsedResults, _imageFromRow($result));
+    }
+    return $parsedResults;
+}
 ?>

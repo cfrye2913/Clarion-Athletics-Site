@@ -53,28 +53,20 @@
             <li class="nav-item">
                 <a class="btn" href="index.php?action=help">Help</a>
             </li>
-            <li class="nav-item">
-                <a class="btn" href="index.php?action=admin">Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="btn" href="index.php?action=members">Members</a>
-            </li>
             <li class="nav-item dropdown">
-                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
-                <!--<div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="./baseball.html">Baseball</a>
-                    <a class="dropdown-item" href="./basketball.html">Basketball</a>
-                    <a class="dropdown-item" href="./crosscountry.html">Cross Country</a>
-                    <a class="dropdown-item" href="./football.html">Football</a>
-                    <a class="dropdown-item" href="./golf.html">Golf</a>
-                    <a class="dropdown-item" href="./soccer.html">Soccer</a>
-                    <a class="dropdown-item" href="./softball.html">Softball</a>
-                    <a class="dropdown-item" href="./swimdive.html">Swimming & Diving</a>
-                    <a class="dropdown-item" href="./tennis.html">Tennis</a>
-                    <a class="dropdown-item" href="./volleyball.html">Volleyball</a>
-                    <a class="dropdown-item" href="./wrestling.html">Wrestling</a>
-                </div>-->
-
+                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="index.php?action=members">Members</a>
+                    <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
+                    <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
+                    <a class="dropdown-item" href="index.php?action=admin_quotes">Quotes</a>
+                    <a class="dropdown-item" href="index.php?action=admin_newsletter">Newsletter</a>
+                </div>
+            </li>
+            <!--<li class="nav-item dropdown">
+                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="View/UnderConstruction.php">Baseball</a>
                     <a class="dropdown-item" href="View/UnderConstruction.php">Basketball</a>
@@ -88,7 +80,7 @@
                     <a class="dropdown-item" href="View/UnderConstruction.php">Volleyball</a>
                     <a class="dropdown-item" href="View/UnderConstruction.php">Wrestling</a>
                 </div>
-            </li>
+            </li>-->
         </ul>
         <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
         <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>

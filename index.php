@@ -1,6 +1,6 @@
 <?php
     require_once ('Model/mysql.php');
-    require_once "Mail.php";
+    //require_once "Mail.php";
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -257,8 +257,31 @@
         case 'underConstruction':
             include 'View/UnderConstruction.php';
             break;
+        case 'remove_image':
+            $imagePath = './Images/CarouselImages/';
+            if(isset($_GET['image_name'])) {
+                $imageName = $_GET['image_name'];
+                unlink($imagePath . $imageName);
+                include 'View/admin_images.php';
+            }
+            else{
+                echo 'There was a problem deleting this image.';
+            }
+            break;
         case 'videos':
             include 'View/videos.php';
+            break;
+        case 'admin_images':
+            include 'View/admin_images.php';
+            break;
+        case 'admin_newsletter':
+            include 'View/admin_newsletter.php';
+            break;
+        case 'admin_sports':
+            include 'View/admin_sports.php';
+            break;
+        case 'admin_quotes':
+            include 'View/admin_quotes.php';
             break;
         default:
             include 'View/home.php';
