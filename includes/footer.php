@@ -9,9 +9,6 @@
 <div class = "text-center footer ">
     Give us feedback by sending us an email to <a href="mailto:c.n.cotton@eagle.clarion.edu">c.n.cotton@eagle.clarion.edu</a>
     Created by Christina Cotton, Aaron Cooper, and Chris Frye &copy2018
-<br>
-    <!--Include the last date modified-->
-    <?php include("dateModified.php"); ?>
 </div>
 </div>
 
