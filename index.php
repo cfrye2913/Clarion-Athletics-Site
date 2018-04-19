@@ -1,6 +1,10 @@
 <?php
+<<<<<<< HEAD
     require_once ('./Model/mysql.php');
     require_once "Mail.php";
+=======
+    //require_once "Mail.php";
+>>>>>>> ab52edab5f15079cd4fe0910287391516d941667
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
