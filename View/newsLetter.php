@@ -12,12 +12,12 @@
         <h1>Sign up for our weekly news letter!</h1>
         <div class = "col-6 offset-3 text-left">
 
-            <form action = "../index.php?action=process_newsletter_signup" method = "post">
+            <form action = "index.php?action=process_newsletter_signup" method = "post">
 
                 <label for="firstName">First Name: </label>
                 <input type = "text" class = "form-control" id="firstName" name = "firstName" required> <br/>
 
-                <label for="lastName""">Last Name:</label>
+                <label for="lastName">Last Name:</label>
                 <input type = "text" class = "form-control" id="lastName" name = "lastName" required><br/>
 
                 <label for = "email">Email:</label>

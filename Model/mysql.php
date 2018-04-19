@@ -61,6 +61,8 @@ class Image{
      */
     public $imagePath;
 }
+
+//TODO Ensure this connection is the proper connection
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
     $username = 'root';
@@ -104,7 +106,7 @@ function getNewsletterMembersEmails() {
     $success = $statement->execute();
     $results = $statement->fetchAll();
     $statement->closeCursor();
-    $parsedResults = [];
+    $parsedResults = array();
     foreach ($results as $member){
         array_push($parsedResults, $member['email']);
     }
@@ -135,7 +137,7 @@ function getAllMembers(){
     $success = $statement->execute();
     $results = $statement->fetchAll();
     $statement->closeCursor();
-    $parsedResults = [];
+    $parsedResults = array();
     foreach ($results as $result){
         array_push($parsedResults, _memberFromRow($result));
     }
