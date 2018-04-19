@@ -3,7 +3,7 @@
     Purpose: Landing page for the site-->
 <?php
     $title = "Home - Clarion Athletics Website";
-    require('includes/navbar.php'); ?>
+    require('./includes/navbar.php'); ?>
 
   <div class="container mb-5">
 
@@ -12,7 +12,7 @@
         populated using all images from
         ../Images/CarouselImages/-->
       <?php
-      include("includes/CarouselInclude.php");
+      include("./includes/CarouselInclude.php");
       ?>
 
 
@@ -37,5 +37,5 @@
         </p>
       </div>
 
-      <?php require("includes/footer.php")?>
+      <?php require("./includes/footer.php")?>
 

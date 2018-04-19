@@ -12,18 +12,8 @@ require_once './Model/mysql.php'?>
     <!--If adding a new column to the table, you must add an onclick of sort()
         and pass in the column number starting at 0. This calls the sort function
         in tableOperations.js-->
-    <!--<thead>
-    <tr>
-        <th scope="col" onclick = "sort(0)" class = "clickable">First</th>
-        <th scope="col" onclick = "sort(1)" class = "clickable">Last</th>
-        <th scope="col" onclick = "sort(2)" class = "clickable">Sport</th>
-        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
-        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
-    </tr>
-    </thead>
-    <tbody>-->
         <?php
-        $member = [];
+        $member = array();
         $members = getAllMembers();
 
         if(count($members) <= 0)
@@ -39,7 +29,7 @@ require_once './Model/mysql.php'?>
         <th scope="col" onclick = "sort(1)" class = "clickable">Last</th>
         <th scope="col" onclick = "sort(2)" class = "clickable">Sport</th>
         <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
-        <th scope="col" onclick = "sort(3)" class = "clickable">Email</th>
+        <th scope="col" onclick = "sort(3)" class = "clickable">Details</th>
     </tr>
     </thead>
     <tbody>';

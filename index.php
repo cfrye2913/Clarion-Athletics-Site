@@ -1,4 +1,6 @@
 <?php
+    require_once ('./Model/mysql.php');
+    require_once "Mail.php";
     require_once ('Model/mysql.php');
     //require_once "Mail.php";
     //Checks if the POST or GET actions are set
@@ -13,24 +15,8 @@
     }
     else
     {
-        include('View/home.php');
+        include('./View/home.php');
         exit();
-    }
-
-    //Determines if a button is checked
-    function IsChecked($chkname,$value)
-    {
-        if(!empty($_POST[$chkname]))
-        {
-            foreach($_POST[$chkname] as $chkval)
-            {
-                if($chkval == $value)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
 
@@ -90,7 +76,7 @@
         case 'add_sport':
             $sport = new \Sport();
             $allSports = getSports();
-            $sportsNames = [];
+            $sportsNames = array();
             foreach ($allSports as $sports)
             {
                 array_push($sportsNames, $sports['sport_name']);
@@ -114,31 +100,31 @@
             include('./includes/footer.php');
             break;
         case 'admin':
-            include 'View/admin.php';
+            include './View/admin.php';
             break;
         case 'help':
-            include 'View/help.php';
+            include './View/help.php';
             break;
         case 'login':
-            include 'View/login.php';
+            include './View/login.php';
             break;
         case 'members':
-            include 'View/members.php';
+            include './View/members.php';
             break;
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
-                include('View/member_details.php');
+                include('./View/member_details.php');
             }
             else{
                 $title = 'Success';
-                include('includes/navbar.php');
+                include('./includes/navbar.php');
                 echo 'There was a problem getting this member\'s information';
-                include('includes/footer.php');
+                include('./includes/footer.php');
             }
             break;
         case 'newsletter':
-            include 'View/newsLetter.php';
+            include './View/newsLetter.php';
             break;
         case 'process_newsletter_signup':
             $member = new \Member();
@@ -146,11 +132,11 @@
             $member->LName = $_POST['lastName'];
             $member->email = $_POST['email'];
             $member->sport = $_POST['sport'];
-            $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0; //(isChecked($_POST['receive_newsletter'], true) ? 1:0);
+            $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0;
             insertMember($member);
-            include ("includes/navbar.php");
+            include ("./includes/navbar.php");
             echo("Signup successful");
-            include("includes/footer.php");
+            include("./includes/footer.php");
             break;
         case 'send_newsletter':
             $emails = getNewsletterMembersEmails();
@@ -158,7 +144,7 @@
             $recipients = $emails;
             $subject = "Test";
 
-            $body = file_get_contents("resourceFiles/newsletter.html");
+            $body = file_get_contents("./resourceFiles/newsletter.html");
 
             //SMTP server information
             $smtpinfo["host"] = "ssl://smtp.gmail.com";
@@ -187,7 +173,7 @@
             }
             break;
         case 'training':
-            include 'View/training.php';
+            include './View/training.php';
             break;
         case 'upload_newsletter':
             //set a title
@@ -222,7 +208,7 @@
             require './includes/navbar.php';
             break;
         case 'underConstruction':
-            include 'View/UnderConstruction.php';
+            include './View/UnderConstruction.php';
             break;
         case 'remove_image':
             $imagePath = './Images/CarouselImages/';
@@ -236,7 +222,7 @@
             }
             break;
         case 'videos':
-            include 'View/videos.php';
+            include './View/videos.php';
             break;
         case 'admin_images':
             include 'View/admin_images.php';
@@ -248,18 +234,6 @@
             include 'View/admin_sports.php';
             break;
         default:
-            include 'View/home.php';
+            include './View/home.php';
             break;
     }
-
-
-
-
-
-
-
-
-
-
-
-?>

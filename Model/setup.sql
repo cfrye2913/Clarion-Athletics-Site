@@ -12,7 +12,7 @@ CREATE TABLE `member` (
   `sport`         INT,
   `email`         VARCHAR(100),
   `receive_newsletters`   TINYINT(1),
-   CONSTRAINT `member_sport_fk` FOREIGN KEY(`sport`) REFERENCES `sports`(`sport_num`),
+   CONSTRAINT `member_sport_fk` FOREIGN KEY(`sport`) REFERENCES `sport`(`sport_num`),
    CONSTRAINT `member_pk` PRIMARY KEY (`member_id`)
 );
 
