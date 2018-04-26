@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
-    Last Modified: 2/23/2018
-    Purpose: This page can be included on any page to incorporate
-    a common header. This page should be included on every page that
-    the user sees.
-    ****This include is required to use bootstrap or custom CSS-->
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-
-
-    <title> <?php echo $title?> </title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <!-- Custom styles for this template -->
-
-
-</head>
-
-<body>
-
 <div class="container">
 
     <div class="company-template"><nav class="navbar navbar-expand-md navbar-dark bg-clarion-blue fixed-top">
     <a class="navbar-brand" href="#">
-        <a href = '../index.php?action=home'>
+        <a href = 'index.php?action=home'>
             <img class = 'img-responsive' src="Images/Clarion_Golden_Eagles_logo.png" alt = "Clarion Athletics" width = '60px' height = '30px'>
         </a>
     </a>
