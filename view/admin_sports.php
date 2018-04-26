@@ -1,8 +1,7 @@
 <?php
 $title = "Edit Images- Clarion Athletics Site";
 include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
-
+?>
 <div id = "sports" class = "jumbotron">
         <h3 class = "mt-3">Add a sport</h3>
         <form enctype="multipart/form-data"

@@ -1,8 +1,7 @@
 <?php
 $title = "Edit Images- Clarion Athletics Site";
 include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
-
+?>
 <h1>Upload an Image</h1>
 <div class="tab-pane active fade show jumbotron" id="images" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
     <h3 class = "mt-3">Carousel Images</h3>

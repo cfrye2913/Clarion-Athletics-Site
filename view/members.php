@@ -1,7 +1,7 @@
 <?php
 $title = "Members Page - Clarion Athletics Site";
 include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
+?>
 <script src = "js/tableOperations.js"></script>
 
 <h1>Members</h1>

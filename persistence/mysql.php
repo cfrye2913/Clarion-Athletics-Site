@@ -62,6 +62,33 @@ class Image{
     public $imagePath;
 }
 
+class User {
+    /**
+     * @var int
+     */
+    public $user_id;
+    /**
+     * @var string
+     */
+    public $username;
+    /**
+     * @var string
+     */
+    public $hashedPass;
+    /**
+     * @var string
+     */
+    public $salt;
+    /**
+     * @var string
+     */
+    public $role;
+    /**
+     * @var bool
+     */
+    public $isActive;
+}
+
 //TODO Ensure this connection is the proper connection
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
@@ -69,6 +96,14 @@ function _getConnection() {
     $password = 'root';
 
     return new \PDO($dsn, $username, $password);
+}
+
+function _generatePassword(string $plaintext_pass, string $salt) {
+    return hash('sha512', $salt . $plaintext_pass);
+}
+
+function verifyPassword(string $plaintext, string $salt, string $hashed) {
+    return hash('sha512', $salt . $plaintext) == $hashed;
 }
 
 //TODO Necessary functions:
@@ -261,4 +296,100 @@ function getAllImages(){
     }
     return $parsedResults;
 }
-?>
+
+/**
+ * @param User $user
+ * @return string
+ * if no id passed in, add
+ * if id passed in, update
+ */
+function persistUser(User $user) {
+    if (!isset($user->id) || $user->id == null)
+        return _insertUser($user);
+    else
+        return _updateUser($user);
+}
+
+function _insertUser($user) {
+    $db = _getConnection();
+    $query = "INSERT INTO `user` (username, password, salt, role, isActive) VALUES
+            (':username', ':pass', ':salt', ':role', ':active')";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $user->username);
+    $statement->bindValue(':pass', $user->password);
+    $statement->bindValue(':salt', $user->salt);
+    $statement->bindValue(':role', $user->role);
+    $statement->bindValue(':active', $user->isActive);
+
+    $success = $statement->execute();
+    $statement->closeCursor();
+
+    return $db->lastInsertId();
+}
+
+/**
+ * @param $result
+ * @return User
+ */
+function _userFromRow($result) {
+    $user = new \User();
+    $user->user_id = $result['user_id'];
+    $user->username = $result['username'];
+    $user->hashedPass = $result['password'];
+    $user->salt = $result['salt'];
+    $user->role = $result['role'];
+    $user->isActive = $result['isActive'];
+
+    return $user;
+}
+
+function _updateUser(User $user) {
+    $db = _getConnection();
+    $query = "UPDATE `users` SET `username`=:Username, `password`=:Pass, `salt`=:Salt, `is_active`=:Is_Active, `role`=:Role WHERE `id`=:Id";
+    $statement = $db->prepare($query);
+
+    $statement->bindValue(':Username', $user->username);
+    $statement->bindValue(':Pass', $user->hashedPass);
+    $statement->bindValue(':Salt', $user->salt);
+    $statement->bindValue(':Is_Active', $user->isActive);
+    $statement->bindValue(':Role', $user->role);
+    $statement->bindValue(':Id', $user->id);
+
+    $success = $statement->execute();
+    $statement->closeCursor();
+
+    return $user->id;
+}
+
+function getUserById(int $id) {
+    $db  = _getConnection();
+    $query = "SELECT `id`, `username`, `password`, `salt`, `is_active`, `role` FROM `users` WHERE id=:Id LIMIT 1";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':Id', $id);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+
+    if ($result) {
+        return _userFromRow($result);
+    } else {
+        return null;
+    }
+}
+
+function getUserByUsername($username) {
+    $db = _getConnection();
+    $query = "SELECT * FROM `user` WHERE `username` = :username";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(":username", $username);
+
+    $result = $statement->fetch();
+    if(isset($result)) {
+        return _userFromRow($result);
+    }
+    else {
+        return null;
+    }
+}

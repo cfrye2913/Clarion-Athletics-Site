@@ -5,8 +5,7 @@
 <?php
 $title = "Admin Page - Clarion Athletics Site";
 include("includes/navbar.php");
-require_once 'Model/mysql.php'?>
-
+?>
 
 <div class="company-template">
     <h1>Admin Page</h1>

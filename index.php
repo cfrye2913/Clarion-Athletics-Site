@@ -1,8 +1,7 @@
 <?php
-    require_once ('./Model/mysql.php');
+    require_once('./persistence/mysql.php');
     require_once "Mail.php";
-    require_once ('Model/mysql.php');
-    //require_once "Mail.php";
+    require_once('persistence/mysql.php');
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -15,9 +14,28 @@
     }
     else
     {
-        include('./View/home.php');
+        include('./view/home.php');
         exit();
     }
+    //Starts a session using cookies
+    session_start();
+
+    //Checks login permissions
+    function isLoggedIn() {
+        return isset($_SESSION['userId']);
+    }
+    //Checks admin permissions if false, deny
+    function isAdmin() {
+        if (!isLoggedIn()) {
+            return false;
+        }
+        $user = getUserById($_SESSION['userId']);
+        if (is_null($user)) {
+            return false;
+        }
+        return $user->role === 'admin';
+    }
+
 
 
     //Determines which page to go to based on the action
@@ -47,7 +65,7 @@
             elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
             {
                 echo "This file is too large to be uploaded <br>";
-                echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+                echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
             }
             else {
 
@@ -64,7 +82,7 @@
                 if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                     $imageType != IMAGETYPE_PNG) {
                     echo "Only gifs, jpegs, and png files are supported. <br>";
-                    echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+                    echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
                     $image = new \Image();
@@ -100,21 +118,52 @@
             include('./includes/footer.php');
             break;
         case 'admin':
-            include './View/admin.php';
+            include './view/admin.php';
+            break;
+        case '/api/login':
+            $username = $_POST['username'];
+            $plainTextPass = $_POST['password'];
+
+            if (!isset($_POST['username']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = "No username provided";
+                echo json_encode($resp);
+                die();
+            }
+            if (!isset($_POST['password']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = 'No password provided';
+                echo json_encode($resp);
+                die();
+            }
+
+            $user = getUserByUsername($username);
+            if( is_null($user) || $user->user_id == null || verifyPassword($plainTextPass, $user->salt, $user->hashedPass)) {
+                header(' ', true, 400);
+                $resp['message'] = 'Incorrect email or password';
+                echo json_encode($resp);
+                die();
+            }
+
+            $_SESSION['userId'] = $user->user_id;
+            $resp['success'] = 'Success';
+            die();
             break;
         case 'help':
-            include './View/help.php';
+            include './view/help.php';
             break;
         case 'login':
-            include './View/login.php';
+            include './view/login.php';
             break;
         case 'members':
-            include './View/members.php';
+            include 'view/members.php';
             break;
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
-                include('./View/member_details.php');
+                include('./view/member_details.php');
             }
             else{
                 $title = 'Success';
@@ -124,7 +173,7 @@
             }
             break;
         case 'newsletter':
-            include './View/newsLetter.php';
+            include './view/newsLetter.php';
             break;
         case 'process_newsletter_signup':
             $member = new \Member();
@@ -173,7 +222,7 @@
             }
             break;
         case 'training':
-            include './View/training.php';
+            include './view/training.php';
             break;
         case 'upload_newsletter':
             //set a title
@@ -208,32 +257,46 @@
             require './includes/navbar.php';
             break;
         case 'underConstruction':
-            include './View/UnderConstruction.php';
+            include './view/UnderConstruction.php';
             break;
         case 'remove_image':
             $imagePath = './Images/CarouselImages/';
             if(isset($_GET['image_name'])) {
                 $imageName = $_GET['image_name'];
                 unlink($imagePath . $imageName);
-                include 'View/admin_images.php';
+                include 'view/admin_images.php';
             }
             else{
                 echo 'There was a problem deleting this image.';
             }
             break;
         case 'videos':
-            include './View/videos.php';
+            include './view/videos.php';
             break;
         case 'admin_images':
-            include 'View/admin_images.php';
+            include 'view/admin_images.php';
             break;
         case 'admin_newsletter':
-            include 'View/admin_newsletter.php';
+            include 'view/admin_newsletter.php';
             break;
         case 'admin_sports':
-            include 'View/admin_sports.php';
+            include 'view/admin_sports.php';
             break;
         default:
-            include './View/home.php';
+            include './view/home.php';
             break;
+    }
+
+
+    function createUser($username, $password, $role, $isActive) {
+        $user = new \User();
+        $user->username = $username;
+        $salt = openssl_random_pseudo_bytes(32);
+        $user->salt = $salt;
+        $hashedPass = _generatePassword($password, $salt);
+        $user->hashedPass = $hashedPass;
+        $user->role = $role;
+        $user->isActive = $isActive;
+
+        return persistUser($user);
     }

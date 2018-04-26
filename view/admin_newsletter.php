@@ -1,8 +1,8 @@
 <?php
 $title = "Edit Images- Clarion Athletics Site";
 include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
-<div>
+?>
+    <div>
     <h3 class = "mt-3">Add a news letter</h3>
     <!--Form to upload an html file for the automated email
          and a form to send the email-->

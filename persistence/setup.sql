@@ -4,6 +4,23 @@ CREATE TABLE `sport` (
   CONSTRAINT `sport_pk` PRIMARY KEY (`sport_num`)
 );
 
+CREATE TABLE `user` (
+  `user_id` INT AUTO_INCREMENT,
+  `username` VARCHAR(200) UNIQUE NOT NULL,
+  `password`  VARBINARY(255),
+  `salt`      VARBINARY(255),
+  `role`      VARCHAR(50),
+  `isActive`  TINYINT(1),
+  CONSTRAINT `user_pk` PRIMARY KEY (`user_id`)
+);
+
+
+SET @SALT = SUBSTRING(MD5(RAND()), -10);
+INSERT INTO `user` (`username`, `password`, `salt`, `role`) VALUES
+  ('admin', SHA2(concat(@SALT, 'password'), 512), @SALT, 'admin');
+INSERT INTO `user` (`username`, `password`, `salt`, `role`) VALUES
+  ('user', SHA2(concat(@SALT, 'password'), 512), @SALT, 'user');
+
 CREATE TABLE `member` (
   `member_id`     INT AUTO_INCREMENT,
   `fname`         VARCHAR (30),
@@ -12,9 +29,12 @@ CREATE TABLE `member` (
   `sport`         INT,
   `email`         VARCHAR(100),
   `receive_newsletters`   TINYINT(1),
-   CONSTRAINT `member_sport_fk` FOREIGN KEY(`sport`) REFERENCES `sport`(`sport_num`),
+   CONSTRAINT `member_sport_fk` FOREIGN KEY(`sport`) REFERENCES `sport`(`sport_num`)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    CONSTRAINT `member_pk` PRIMARY KEY (`member_id`)
 );
+
 
 CREATE TABLE `image` (
   `image_id`      INT AUTO_INCREMENT,
@@ -33,3 +53,4 @@ INSERT INTO `sport` (sport_name) VALUES ("Swimming & Diving");
 INSERT INTO `sport` (sport_name) VALUES ("Tennis");
 INSERT INTO `sport` (sport_name) VALUES ("Volleyball");
 INSERT INTO `sport` (sport_name) VALUES ("Wrestling");
+

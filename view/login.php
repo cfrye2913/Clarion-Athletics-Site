@@ -5,6 +5,36 @@
     $title = "Login - Clarion Athletics Website";
     include("includes/navbar.php"); ?>
 
+<script>
+    (function () {
+        $(document).ready(function () {
+            var form = $("#loginForm");
+            form.submit(function () {
+                event.preventDefault();
+
+                var email = $("#username").val();
+                var pass = $("#password").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "../index.php?path=/api/login",
+                    dataType: 'json',
+                    data: {
+                        username: email,
+                        password: pass
+                    }
+                }).done(function (data, status, xhr) {
+                    window.location.replace('../index.php?path=/home');
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    var data = jqXHR.responseJSON;
+                    if (data !== undefined)
+                        alert(data.message);
+                })
+            })
+        })
+    })();
+</script>
+
 <div class="container">
 
     <div class="company-template">
@@ -22,24 +52,24 @@
             <!-- Login Tab -->
             <div class="tab-pane active fade show" id="login" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
                 <!-- Login Tab -->
-                <form class = "form-control col-6 mr-auto ml-auto">
+                <form id = 'loginForm' class = "form-control col-6 mr-auto ml-auto">
                     <br>
                     <span class = "p-2">
-                        Username: <input type = "text">
+                        Username: <input id = 'username' type = "text" placeholder="Username">
                     </span>
                     <br>
                     <br>
                     <span class = "m-2">
-                        Password: <input type = "password">
+                        Password: <input id = 'password' type = "password" placeholder = "Password">
                     </span>
                     <br>
-                    <button class = "btn-primary m-2">Login</button>
+                    <button class = "btn-primary m-2" type = 'submit'>Login</button>
                 </form>
             </div>
             <!-- Signup Tab -->
             <div id = "signup" class = "tab-pane fade" role = "tabpanel" aria-labelledby="signup-tab">
                 <!-- Sign Up form -->
-                <form class = "form-control col-6 mr-auto ml-auto">
+                <form id = 'signupForm' class = "form-control col-6 mr-auto ml-auto">
                     <br>
                     <span class = "text-left"> Email: </span>
                     <span class = "text-center">
