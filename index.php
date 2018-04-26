@@ -140,7 +140,7 @@
             }
 
             $user = getUserByUsername($username);
-            if( is_null($user) || $user->user_id == null || verifyPassword($plainTextPass, $user->salt, $user->hashedPass)) {
+            if( is_null($user) || $user->user_id == null || !verifyPassword($plainTextPass, $user->salt, $user->hashedPass)) {
                 header(' ', true, 400);
                 $resp['message'] = 'Incorrect email or password';
                 echo json_encode($resp);

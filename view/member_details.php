@@ -1,6 +1,7 @@
 <?php
 $title = "Member Details Page - Clarion Athletics Site";
-include("./includes/navbar.php");
+include("./includes/script_css.php");
+require('./includes/navbar.php');
 $member = getMemberById($member_id);
 ?>
 <h1>Member Details</h1>

@@ -3,6 +3,7 @@
     Purpose: Landing page for the site-->
 <?php
     $title = "Home - Clarion Athletics Website";
+    require('./includes/script_css.php');
     require('./includes/navbar.php'); ?>
 
   <div class="container mb-5">
@@ -36,6 +37,7 @@
         (Make sure you show each team’s support by attending their games and competitions).
         </p>
       </div>
+  </div>
 
       <?php require("./includes/footer.php")?>
 

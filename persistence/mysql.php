@@ -384,6 +384,7 @@ function getUserByUsername($username) {
 
     $statement = $db->prepare($query);
     $statement->bindValue(":username", $username);
+    $success = $statement->execute();
 
     $result = $statement->fetch();
     if(isset($result)) {
