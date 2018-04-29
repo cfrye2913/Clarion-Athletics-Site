@@ -29,11 +29,11 @@
                         $parsedResults = getSports();
                         foreach($parsedResults as $row):
                     ?>
-                        <option> <?=$row['sport_name']; ?> </option>
+                        <option> <?=$row->sportsName; ?> </option>
                     <?php endforeach; ?>
                     
                 <label class="btn btn-outline-secondary btn-sm">
-                    <input name="receive_newsletter" = "receive_newsletters" type="checkbox" autocomplete="off"> Receive Newsletters
+                    <input name="receive_newsletter" = "receive_newsletters" type="checkbox" autocomplete="off"> Receive Workouts
                 </label>
                 <input type = "submit" value = "Sign Up" class = "btn btn-color-clarionBlue mt-3 text-white"/>
             </form>

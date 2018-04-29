@@ -60,7 +60,7 @@
                     <a class="dropdown-item" href="index.php?action=members">Members</a>
                     <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
                     <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
-                    <a class="dropdown-item" href="index.php?action=admin_newsletter">Newsletter</a>
+                    <a class="dropdown-item" href="index.php?action=admin_workout">Workouts</a>
                 </div>
             </li>
             <!--<li class="nav-item dropdown">

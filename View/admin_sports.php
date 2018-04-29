@@ -1,5 +1,5 @@
 <?php
-$title = "Edit Images- Clarion Athletics Site";
+$title = "Edit Sports- Clarion Athletics Site";
 include("./includes/navbar.php");
 require_once './Model/mysql.php'?>
 
@@ -14,6 +14,27 @@ require_once './Model/mysql.php'?>
                 <input class = "form-control" type = "submit" value = "Add Sport"/>
             </div>
         </form>
+    <table class = "mx-auto table table-hover">
+        <thead>
+            <tr>
+                <td><b>Sport</b></td>
+                <td>&nbsp</td>
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+        $sportList = getSports();
+        if(!empty($sportList)){
+            foreach ($sportList as $sport){
+                echo '<tr>';
+                echo '<td>' . $sport->sportsName . '</td>';
+                echo '<td><a class = "btn btn-primary" href = "index.php?action=remove_sport&id=' . $sport->sportsNum . '"> Delete</a>';
+                echo '</tr>';
+            }
+        }
+    ?>
+        </tbody>
+    </table>
 </div>
 
 <?php

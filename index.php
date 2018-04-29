@@ -1,7 +1,8 @@
 <?php
     require_once ('./Model/mysql.php');
-    require_once "Mail.php";
+    //require_once "Mail.php";
     require_once ('Model/mysql.php');
+    $config = require_once 'config.php';
     //require_once "Mail.php";
     //Checks if the POST or GET actions are set
     //sets action appropriately.
@@ -40,14 +41,14 @@
             //check that a file was uploaded
             if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE) {
                 echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
-                    document.location.href = \"../pages/admin.php\"</script>";
+                    document.location.href = \"../pages/admin_workout.php\"</script>";
             }
             //check if the file exceeds the maximum upload file size
             //This file size is specified in php.ini
             elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
             {
                 echo "This file is too large to be uploaded <br>";
-                echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+                echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
             }
             else {
 
@@ -64,7 +65,7 @@
                 if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                     $imageType != IMAGETYPE_PNG) {
                     echo "Only gifs, jpegs, and png files are supported. <br>";
-                    echo "Click <a href = './View/admin.php'>here</a> to return to the admin page";
+                    echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
                     $image = new \Image();
@@ -77,9 +78,9 @@
             $sport = new \Sport();
             $allSports = getSports();
             $sportsNames = array();
-            foreach ($allSports as $sports)
+            foreach ($allSports as $sport)
             {
-                array_push($sportsNames, $sports['sport_name']);
+                array_push($sportsNames, $sport->sportsName);
             }
             if(isset($_POST['sportName'])) {
                 $sport->sportsName = $_POST['sportName'];
@@ -99,6 +100,28 @@
             echo $message;
             include('./includes/footer.php');
             break;
+        case 'remove_sport':
+            if(isset($_GET['id'])){
+                $id = intval($_GET['id']);
+            }else{
+                $title = 'Fail';
+                include('./includes/navbar.php');
+                echo 'There was a problem getting this sport\'s information';
+                include('./includes/footer.php');
+                die();
+            }
+            $success = removeSport($id);
+            if($success){
+                include './View/admin_sports.php';
+            }else{
+                $title = 'Fail';
+                include('./includes/navbar.php');
+                echo 'Failed to remove sport from database';
+                include('./includes/footer.php');
+                die();
+            }
+            die();
+            break;
         case 'admin':
             include './View/admin.php';
             break;
@@ -111,13 +134,25 @@
         case 'members':
             include './View/members.php';
             break;
+        case 'removeMember':
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+            }else{
+                die();
+            }
+            $success = removeMember($id);
+            if(!$success){
+                echo '<script>alert("Failed to remove member.")</script>';
+            }
+            include './View/members.php';
+            break;
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
                 include('./View/member_details.php');
             }
             else{
-                $title = 'Success';
+                $title = 'Fail';
                 include('./includes/navbar.php');
                 echo 'There was a problem getting this member\'s information';
                 include('./includes/footer.php');
@@ -175,21 +210,22 @@
         case 'training':
             include './View/training.php';
             break;
-        case 'upload_newsletter':
+        case 'upload_workout':
             //set a title
-            $title = "Newsletter Upload";
+            $title = "Workout Upload";
             //include the navbar
             //specify the file path that the text file will be stored at
-            $targetfile = './resourceFiles/newsletter.html';
+            $targetfile = './resourceFiles/workout.pdf';
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             //check if a file was submitted
             if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE)
             {
-                echo "<script type='text/javascript'>alert('No file was selected. Please try again.');
-                        document.location.href = \"./pages/admin.php\"</script>";
+                echo "<script type='text/javascript'>alert('No file was selected. Please try again.');</script>";
+                include "./View/admin_workout.php";
+                die();
             }
             //Check the file type
-            elseif(finfo_file($finfo, $_FILES['userFile']['tmp_name']) != "text/plain")
+            elseif(finfo_file($finfo, $_FILES['userFile']['tmp_name']) != "application/pdf")
             {
                 $message = 'Incorrect file type';
             }
@@ -227,8 +263,8 @@
         case 'admin_images':
             include 'View/admin_images.php';
             break;
-        case 'admin_newsletter':
-            include 'View/admin_newsletter.php';
+        case 'admin_workout':
+            include 'View/admin_workout.php';
             break;
         case 'admin_sports':
             include 'View/admin_sports.php';

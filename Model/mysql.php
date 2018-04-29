@@ -158,6 +158,17 @@ function getMemberById($id){
     return _memberFromRow($result);
 }
 
+function removeMember($id){
+    $db = _getConnection();
+    $query = "DELETE FROM member WHERE member_id = :id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id', $id);
+    
+    $success = $statement->execute();
+    $statement->closeCursor();
+    return $success;
+}
+
 //Allows the administrator to insert a sport into the database
 function insertSport(\Sport $sport){
     $db = _getConnection();
@@ -171,6 +182,7 @@ function insertSport(\Sport $sport){
     return $db->lastInsertId();
 }
 
+
 //Gets all sports in the database
 function getSports() {
     $db = _getConnection();
@@ -183,7 +195,7 @@ function getSports() {
     $statement->closeCursor();
     $parsedResults = array();
     foreach ($results as $result){
-        array_push($parsedResults, $result);
+        array_push($parsedResults, _sportFromRow($result));
     }
     return $parsedResults;
 }
@@ -202,12 +214,22 @@ function getSportIdByName($sport_name)
     return intval($result['sport_num']);
 }
 //Parses the results of the sports query
-function sportFromRow($result){
+function _sportFromRow($result){
     $sport = new \Sport();
 
     $sport->sportsNum = $result['sport_num'];
     $sport->sportsName = $result['sport_name'];
     return $sport;
+}
+
+function removeSport($id){
+    $db = _getConnection();
+    $query = "DELETE FROM `sport` WHERE `sport_num` = :id";
+    $statement= $db->prepare($query);
+    $statement->bindValue(':id', $id);
+    $success = $statement->execute();
+    $error = $statement->errorInfo();
+    return $success;
 }
 
 function insertImage(\Image $image){
