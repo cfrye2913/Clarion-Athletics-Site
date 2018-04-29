@@ -1,9 +1,12 @@
 <?php
+<<<<<<< HEAD
     require_once ('./Model/mysql.php');
     //require_once "Mail.php";
     require_once ('Model/mysql.php');
     $config = require_once 'config.php';
     //require_once "Mail.php";
+=======
+>>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -16,9 +19,27 @@
     }
     else
     {
-        include('./View/home.php');
         exit();
     }
+    //Starts a session using cookies
+    session_start();
+
+    //Checks login permissions
+    function isLoggedIn() {
+        return isset($_SESSION['userId']);
+    }
+    //Checks admin permissions if false, deny
+    function isAdmin() {
+        if (!isLoggedIn()) {
+            return false;
+        }
+        $user = getUserById($_SESSION['userId']);
+        if (is_null($user)) {
+            return false;
+        }
+        return $user->role === 'admin';
+    }
+
 
 
     //Determines which page to go to based on the action
@@ -48,7 +69,10 @@
             elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
             {
                 echo "This file is too large to be uploaded <br>";
+<<<<<<< HEAD
                 echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
+=======
+>>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
             }
             else {
 
@@ -65,7 +89,11 @@
                 if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                     $imageType != IMAGETYPE_PNG) {
                     echo "Only gifs, jpegs, and png files are supported. <br>";
+<<<<<<< HEAD
                     echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
+=======
+                    echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
+>>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
                     $image = new \Image();
@@ -123,16 +151,12 @@
             die();
             break;
         case 'admin':
-            include './View/admin.php';
             break;
         case 'help':
-            include './View/help.php';
             break;
         case 'login':
-            include './View/login.php';
             break;
         case 'members':
-            include './View/members.php';
             break;
         case 'removeMember':
             if(isset($_GET['id'])){
@@ -149,7 +173,6 @@
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
-                include('./View/member_details.php');
             }
             else{
                 $title = 'Fail';
@@ -159,7 +182,6 @@
             }
             break;
         case 'newsletter':
-            include './View/newsLetter.php';
             break;
         case 'process_newsletter_signup':
             $member = new \Member();
@@ -208,7 +230,6 @@
             }
             break;
         case 'training':
-            include './View/training.php';
             break;
         case 'upload_workout':
             //set a title
@@ -244,32 +265,29 @@
             require './includes/navbar.php';
             break;
         case 'underConstruction':
-            include './View/UnderConstruction.php';
             break;
         case 'remove_image':
             $imagePath = './Images/CarouselImages/';
             if(isset($_GET['image_name'])) {
                 $imageName = $_GET['image_name'];
                 unlink($imagePath . $imageName);
-                include 'View/admin_images.php';
             }
             else{
                 echo 'There was a problem deleting this image.';
             }
             break;
         case 'videos':
-            include './View/videos.php';
             break;
         case 'admin_images':
-            include 'View/admin_images.php';
             break;
+<<<<<<< HEAD
         case 'admin_workout':
             include 'View/admin_workout.php';
+=======
+>>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
             break;
         case 'admin_sports':
-            include 'View/admin_sports.php';
             break;
         default:
-            include './View/home.php';
             break;
     }

@@ -1,9 +1,20 @@
+
+
+<!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: Display training videos to the user-->
-<?php
-    $title = "Videos - Clarion Athletics Website";
-    require('includes/navbar.php'); ?>
+    Purpose: This page can be included on any page to incorporate
+    a common header. This page should be included on every page that
+    the user sees.
+    ****This include is required to use bootstrap or custom CSS-->
+
+<html lang="en">
+<title>Edit Images</title>
+<head>
+    <?php include("./includes/script_css.php");
+    require('./includes/navbar.php');?>
+</head>
+<body>
     <div class="container">
         <div class="company-template">
             <h1>Video Page</h1>
@@ -20,6 +31,6 @@
             <h2> Bench Press </h2>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/rT7DgCr-3pg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-
+    </div>
 
     <?php require("includes/footer.php") ?>

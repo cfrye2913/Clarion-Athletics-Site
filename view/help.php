@@ -5,8 +5,22 @@
     //set the title and include the header
     $title = "Help - Clarion Athletics Website";
     require('includes/navbar.php'); ?>
+<!DOCTYPE html>
+<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
+    Last Modified: 2/23/2018
+    Purpose: This page can be included on any page to incorporate
+    a common header. This page should be included on every page that
+    the user sees.
+    ****This include is required to use bootstrap or custom CSS-->
 
-<div class = "jumbotron">
+<html lang="en">
+<title>Edit Images</title>
+<head>
+    <?php include("./includes/script_css.php");
+    require('./includes/navbar.php');?>
+</head>
+<body>
+    <div class = "jumbotron">
           <h1>About</h1>
           <p class="lead">This website was designed as a project for the course CIS 370. <br> The creators of this website are:
             <br> Aaron Cooper
@@ -55,6 +69,5 @@
       <script async defer
               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7j3O6YLRgClNnSOuSHDcZjxzdsKLAfU8&callback=initMap">
       </script>
-
 
       <?php require("includes/footer.php")?>
