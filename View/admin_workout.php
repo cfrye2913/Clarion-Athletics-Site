@@ -1,7 +1,7 @@
 <?php
 $title = "Edit Workout- Clarion Athletics Site";
 include("./includes/navbar.php");
-require_once './Model/mysql.php'?>
+require_once './persistence/mysql.php'?>
 <div>
     <h3 class = "mt-3">Add a Workout</h3>
     <!--Form to upload an html file for the automated email

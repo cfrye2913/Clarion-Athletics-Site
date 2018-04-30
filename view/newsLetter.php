@@ -33,7 +33,7 @@
                             $parsedResults = getSports();
                             foreach($parsedResults as $row):
                         ?>
-                            <option> <?=$row['sport_name']; ?> </option>
+                            <option> <?=$row->sportsName; ?> </option>
                         <?php endforeach; ?>
 
                     <label class="btn btn-outline-secondary btn-sm">

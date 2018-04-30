@@ -1,12 +1,9 @@
 <?php
-<<<<<<< HEAD
-    require_once ('./Model/mysql.php');
-    //require_once "Mail.php";
-    require_once ('Model/mysql.php');
+    //require_once ('Model/mysql.php');
     $config = require_once 'config.php';
     //require_once "Mail.php";
-=======
->>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
+    require_once('persistence/mysql.php');
+
     //Checks if the POST or GET actions are set
     //sets action appropriately.
     if(isset($_POST['action']))
@@ -19,6 +16,7 @@
     }
     else
     {
+        include('./view/home.php');
         exit();
     }
     //Starts a session using cookies
@@ -69,10 +67,8 @@
             elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
             {
                 echo "This file is too large to be uploaded <br>";
-<<<<<<< HEAD
                 echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
-=======
->>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
+                echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
             }
             else {
 
@@ -89,11 +85,10 @@
                 if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                     $imageType != IMAGETYPE_PNG) {
                     echo "Only gifs, jpegs, and png files are supported. <br>";
-<<<<<<< HEAD
+
                     echo "Click <a href = './View/admin_images.php'>here</a> to return to the admin page";
-=======
+
                     echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
->>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
                     $image = new \Image();
@@ -151,12 +146,47 @@
             die();
             break;
         case 'admin':
+            include './view/admin.php';
+            break;
+        case '/api/login':
+            $username = $_POST['username'];
+            $plainTextPass = $_POST['password'];
+
+            if (!isset($_POST['username']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = "No username provided";
+                echo json_encode($resp);
+                die();
+            }
+            if (!isset($_POST['password']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = 'No password provided';
+                echo json_encode($resp);
+                die();
+            }
+
+            $user = getUserByUsername($username);
+            if( is_null($user) || $user->user_id == null || !verifyPassword($plainTextPass, $user->salt, $user->hashedPass)) {
+                header(' ', true, 400);
+                $resp['message'] = 'Incorrect email or password';
+                echo json_encode($resp);
+                die();
+            }
+
+            $_SESSION['userId'] = $user->user_id;
+            $resp['success'] = 'Success';
+            die();
             break;
         case 'help':
+            include './view/help.php';
             break;
         case 'login':
+            include './view/login.php';
             break;
         case 'members':
+            include 'view/members.php';
             break;
         case 'removeMember':
             if(isset($_GET['id'])){
@@ -173,6 +203,7 @@
         case 'member_details':
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
+                include('./view/member_details.php');
             }
             else{
                 $title = 'Fail';
@@ -181,7 +212,29 @@
                 include('./includes/footer.php');
             }
             break;
+        case 'updateMember':
+            if(!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['sport']) || !isset($_POST['email']) || !isset($_POST['memberId'])){
+                echo '<script>alert("All fields must be entered to update the member.");</script>';
+                include './View/members.php';
+                die();
+            }
+            $member = new \Member();
+            if(isset($_POST['receiveNewsletters'])){
+                $member->receive_newsletter = 1;
+            }else{
+                $member->receive_newsletter = 0;
+            }
+            $member->memberId = intval($_POST['memberId']);
+            $member->FName = $_POST['firstName'];
+            $member->LName = $_POST['lastName'];
+            $member->sport = getSportIdByName($_POST['sport']);
+            $member->email = $_POST['email'];
+            updateMember($member);
+            $member_id = $member->memberId;
+            include './View/member_details.php';
+            break;
         case 'newsletter':
+            include './view/newsLetter.php';
             break;
         case 'process_newsletter_signup':
             $member = new \Member();
@@ -230,6 +283,7 @@
             }
             break;
         case 'training':
+            include './view/training.php';
             break;
         case 'upload_workout':
             //set a title
@@ -265,29 +319,50 @@
             require './includes/navbar.php';
             break;
         case 'underConstruction':
+            include './view/UnderConstruction.php';
             break;
         case 'remove_image':
             $imagePath = './Images/CarouselImages/';
             if(isset($_GET['image_name'])) {
                 $imageName = $_GET['image_name'];
                 unlink($imagePath . $imageName);
+                include 'view/admin_images.php';
             }
             else{
                 echo 'There was a problem deleting this image.';
             }
             break;
         case 'videos':
+            include './view/videos.php';
             break;
         case 'admin_images':
+            include 'view/admin_images.php';
             break;
-<<<<<<< HEAD
+
         case 'admin_workout':
             include 'View/admin_workout.php';
-=======
->>>>>>> 6c43b7a19e4669e810b630109b1bf01b093fd378
+
+        case 'admin_newsletter':
+            include 'view/admin_newsletter.php';
             break;
         case 'admin_sports':
+            include 'view/admin_sports.php';
             break;
         default:
+            include './view/home.php';
             break;
+    }
+
+
+    function createUser($username, $password, $role, $isActive) {
+        $user = new \User();
+        $user->username = $username;
+        $salt = openssl_random_pseudo_bytes(32);
+        $user->salt = $salt;
+        $hashedPass = _generatePassword($password, $salt);
+        $user->hashedPass = $hashedPass;
+        $user->role = $role;
+        $user->isActive = $isActive;
+
+        return persistUser($user);
     }

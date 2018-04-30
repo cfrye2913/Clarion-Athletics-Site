@@ -25,21 +25,55 @@ $member = getMemberById($member_id);
 </script>
 <h1>Member Details</h1>
 <div class = "col-8 mx-auto mb-6 text-left font-size-large">
-    <?php
-        echo '<b>Member Id: </b> ' . $member->memberId . '<br>';
-        echo '<b>First Name: </b> ' . $member->FName . '<br>';
-        echo '<b>Last Name: </b> ' . $member->LName . '<br>';
-        echo '<b>Email: </b>' . $member->email . '<br>';
-        echo '<b>Sport: </b> ' . $member->sport_name . '<br>';
-        echo '<b>Date Registered:</b> ' . $member->dateRegistered->format('m-d-Y') . '<br>';
-        if($member->receive_newsletter == 0) {
-            echo 'This member has chosen not to receive workout notifications';
-        }
-        else{
-            echo 'This member has chosen to receive workout notifications';
-        }
-    ?>
-    <br>
+    <form class = "form-group" method = "post" action = "index.php">
+        <input type = "hidden" name = "action" value = "updateMember" />
+        <input type = "hidden" name = "memberId" value = "<?= $member->memberId?>" />
+        <div class = "form-row">
+            Member Id: <?= $member->memberId?>
+        </div>
+        <div class = "form-row form-inline">
+            <label>Sign-up Date: <?= $member->dateRegistered->format("m-d-Y")?></label>
+        </div>
+        <div class = "form-row form-inline">
+            <label>First Name: </label>
+            <input class = "form-control ml-2" name = "firstName" type = "text" maxlength="50" required value = "<?= $member->FName?>"/>
+        </div>
+        <div class = "form-row form-inline">
+            <label>Last Name: </label>
+            <input class = "form-control ml-2" name = "lastName" type = "text" maxlength="50" required value = "<?= $member->LName?>"/>
+        </div>
+        <div class = "form-row form-inline">
+            <label>Sport: </label>
+            <select class = "form-control" id = "sport" name = "sport" required>
+                <?php
+                $parsedResults = getSports();
+                foreach($parsedResults as $row):
+                    ?>
+                    <option <?php if($member->sport_name === $row->sportsName){
+                        echo 'selected = "selected"';
+                    }?>>
+                        <?=$row->sportsName; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class = "form-row form-inline">
+            <label>Email: </label>
+            <input class = "form-control ml-2" name = "email" type = "text" maxlength="255" required value = "<?= $member->email?>"/>
+        </div>
+        <div class = "form-row form-inline">
+            <label>Member should receive newsletters: </label>
+            <?php
+                if($member->receive_newsletter){
+                    echo '<input type = "checkbox" name = "receiveNewsletters" class = "form-check-input checkbox-large ml-4" checked />';
+                }else{
+                    echo '<input type = "checkbox" name = "receiveNewsletters" class = "form-check-input checkbox-large ml-4" />';
+                }
+            ?>
+        </div>
+        <br>
+        <input type = "submit" id = "save" class = "btn btn-primary" value = "Save Info"/>
+    </form>
     <button id="remove" class = "btn btn-primary">Delete Member</button>
     <div class="modal" tabindex="-1" role="dialog" id="confirmation">
         <div class="modal-dialog" role="document">

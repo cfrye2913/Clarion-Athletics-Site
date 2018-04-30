@@ -382,6 +382,22 @@ function _updateUser(User $user) {
 
     return $user->id;
 }
+function updateMember(\Member $member){
+    $db = _getConnection();
+    $query = "UPDATE `member` SET `fname`=:fname, `lname` = :lname, sport = :sport, email = :email, receive_newsletters = :newsletters WHERE member_id = :id";
+    $statement = $db->prepare($query);
+
+
+    $statement->bindValue(':id', $member->memberId);
+    $statement->bindValue(':fname', $member->FName);
+    $statement->bindValue(':lname', $member->LName);
+    $statement->bindValue(':sport', $member->sport);
+    $statement->bindValue(':email', $member->email);
+    $statement->bindValue(':newsletters', $member->receive_newsletter);
+
+    $success = $statement->execute();
+    $statement->closeCursor();
+}
 
 function getUserById(int $id) {
     $db  = _getConnection();
