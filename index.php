@@ -175,6 +175,11 @@
             include './view/admin.php';
             break;
         case '/api/login':
+//            if (!isset($_SERVER['HTTPS'])) {
+//                $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//                header("Location: " . $url);
+//                exit();
+//            }
             $username = $_POST['username'];
             $plainTextPass = $_POST['password'];
 
@@ -208,6 +213,11 @@
             break;
 
         case '/api/user/update_pass':
+//            if (!isset($_SERVER['HTTPS'])) {
+//                $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//                header("Location: " . $url);
+//                exit();
+//            }
             $user = getUserById($_SESSION['userId']);
             $plainTextPass = $_POST['pass'];
 
@@ -227,15 +237,26 @@
             include './view/help.php';
             break;
         case 'login':
+//            if (!isset($_SERVER['HTTPS'])) {
+//                $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//                header("Location:" . $url);
+//                exit();
+//            }
             if(isLoggedIn()){
                 require('./includes/script_css.php');
                 require ('./includes/navbar.php');
                 echo "You are already logged in";
                 require ('./includes/footer.php');
+                die();
             }
             include './view/login.php';
             break;
         case 'edit_profile':
+//            if (!isset($_SERVER['HTTPS'])) {
+//                $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//                header("Location: " . $url);
+//                exit();
+//            }
             include './view/edit_profile.php';
             break;
         case 'logout':
