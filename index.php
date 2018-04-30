@@ -154,7 +154,7 @@
             }
             $success = removeSport($id);
             if($success){
-                include './View/admin_sports.php';
+                include './view/admin_sports.php';
             }else{
                 $title = 'Fail';
                 include('./includes/navbar.php');
@@ -263,7 +263,7 @@
             if(!$success){
                 echo '<script>alert("Failed to remove member.")</script>';
             }
-            include './View/members.php';
+            include './view/members.php';
             break;
         case 'member_details':
             if(!isAdmin()) {
@@ -296,7 +296,7 @@
             }
             if(!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['sport']) || !isset($_POST['email']) || !isset($_POST['memberId'])){
                 echo '<script>alert("All fields must be entered to update the member.");</script>';
-                include './View/members.php';
+                include './view/members.php';
                 die();
             }
             $member = new \Member();
@@ -312,7 +312,7 @@
             $member->email = $_POST['email'];
             updateMember($member);
             $member_id = $member->memberId;
-            include './View/member_details.php';
+            include './view/member_details.php';
             break;
         case 'newsletter':
             include './view/newsLetter.php';
@@ -392,7 +392,7 @@
             if($_FILES['userFile']['error'] == UPLOAD_ERR_NO_FILE)
             {
                 echo "<script type='text/javascript'>alert('No file was selected. Please try again.');</script>";
-                include "./View/admin_workout.php";
+                include "./view/admin_workout.php";
                 die();
             }
             //Check the file type
@@ -437,6 +437,13 @@
             }
             break;
         case 'videos':
+            if(!isLoggedIn()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include './view/videos.php';
             break;
         case 'admin_add_user':
@@ -487,6 +494,13 @@
             include 'view/admin_images.php';
             break;
         case 'admin_delete_user':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             if(!isset($_GET['user_id'])) {
                 echo '<script> alert("Failed to delete user"); </script>';
             }
@@ -502,8 +516,8 @@
                 include('./includes/footer.php');
                 die();
             }
-            include 'View/admin_workout.php';
-
+            include 'view/admin_workout.php';
+            break;
         case 'admin_newsletter':
             if(!isAdmin()) {
                 include('./includes/script_css.php');

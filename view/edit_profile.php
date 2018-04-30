@@ -66,10 +66,10 @@
             <form id = 'changePass' class = "form col-6 mr-auto ml-auto">
                 <br>
                 <div class = "form-row">
-                    <label for = "pw">Password:<span class = "text-danger">*</span></label> <input class = "form-control" id = 'password' type = "password" placeholder = "Password">
+                    <label for = "pw">Password:<span class = "text-danger">*</span></label> <input class = "form-control" id = 'password' type = "password" placeholder = "Password" required>
                 </div>
                 <div class = "form-row">
-                    <label for = "pw">Confirm Password:<span class = "text-danger">*</span></label> <input class = "form-control" id = 'confirm' type = "password" placeholder = "Password">
+                    <label for = "pw">Confirm Password:<span class = "text-danger">*</span></label> <input class = "form-control" id = 'confirm' type = "password" placeholder = "Password" required>
                 </div>
                 <button class = "btn btn-primary m-2" type = 'submit'>Change Password</button>
             </form>

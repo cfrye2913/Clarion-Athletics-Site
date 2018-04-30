@@ -17,6 +17,9 @@
             </li>
             <!-- Hides navigation bar items if permissions are not set -->
             <?php if(isLoggedIn()) { ?>
+                <li class = "nav-item">
+                    <a class="btn" href = "./resourceFiles/workout.pdf">Workouts</a>
+                </li>
 <!--                <li class="nav-item">-->
 <!--                    <a class="btn" href="index.php?action=training">Training</a>-->
 <!--                </li>-->

@@ -33,6 +33,7 @@
             <tr>
                 <th scope="col">Image Name</th>
                 <th scope="col">Delete</th>
+                <th scope="col">Download</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +51,7 @@
                 echo '<tr>';
                 echo '<td scope = \"col\">' . $imageArray[$i] . '</td>';
                 echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="index.php?action=remove_image&image_name=' . $imageArray[$i] . '">Delete</a>';
+                echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="../Images/CarouselImages/' . $imageArray[$i] .'">Download</a>';
                 echo '</tr>';
             }
         }

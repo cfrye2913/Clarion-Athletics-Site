@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: This paqe allows the admin to modify which sports are present in the database-->
+    Purpose: This paqe allows the admin to modify the workout document-->
 
 <html lang="en">
 <title>Admin - Edit Sports</title>
@@ -23,10 +23,6 @@
             <input type = "submit" value = "Upload Workout" class = " btn btn-primary ml-auto mr-auto mt-3 mb-3"/>
         </form>
         <a href = "./resourceFiles/workout.pdf" target = "_blank" class = "btn btn-primary">Download Current Workout</a>
-        <!--            <a href = "index.php?action=send_newsletter" class = "btn-danger">Send Newsletter</a>-->
-        <!--<form action="index.php?action=send_newsletter" method="post">
-            <input type="submit" value="Send newsletter" class = "btn-danger">
-        </form>-->
     </div>
 </body>
 <?php
