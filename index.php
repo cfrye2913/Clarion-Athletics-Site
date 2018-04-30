@@ -204,6 +204,23 @@
             echo json_encode($resp);
             die();
             break;
+
+        case '/api/user/update_pass':
+            $user = getUserById($_SESSION['userId']);
+            $plainTextPass = $_POST['pass'];
+
+            $user->salt = openssl_random_pseudo_bytes(32);
+            $user->hashedPass = _generatePassword($plainTextPass, $user->salt);
+            $user_id = persistUser($user);
+            if($user_id != 0) {
+                $resp['message'] = 'Password successfully updated';
+            }
+            else {
+                $resp['message'] = 'An error occurred while updating, please try again';
+            }
+            echo json_encode($resp);
+            die();
+            break;
         case 'help':
             include './view/help.php';
             break;
@@ -215,6 +232,9 @@
                 require ('./includes/footer.php');
             }
             include './view/login.php';
+            break;
+        case 'edit_profile':
+            include './view/edit_profile.php';
             break;
         case 'logout':
             $_SESSION = array();
@@ -417,6 +437,43 @@
         case 'videos':
             include './view/videos.php';
             break;
+        case 'admin_add_user':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
+
+            $username = $_POST['username'];
+            $plainTextPass = $_POST['password'];
+
+            if (!isset($_POST['username']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = "No username provided";
+                echo json_encode($resp);
+                die();
+            }
+            if (!isset($_POST['password']))
+            {
+                header(' ', true, 400);
+                $resp['message'] = 'No password provided';
+                echo json_encode($resp);
+                die();
+            }
+
+            $user = createUser($username, $plainTextPass, $_POST['role'], 1);
+            if($user != 0) {
+                $resp['message'] = 'User added successfully';
+            }
+            else {
+                $resp['message'] = 'A user with that username already exists';
+            }
+            echo json_encode($resp);
+            die();
+            break;
         case 'admin_images':
             if(!isAdmin()) {
                 include('./includes/script_css.php');
@@ -427,7 +484,14 @@
             }
             include 'view/admin_images.php';
             break;
-
+        case 'admin_delete_user':
+            if(!isset($_GET['user_id'])) {
+                echo '<script> alert("Failed to delete user"); </script>';
+            }
+            deleteUser($_GET['user_id']);
+            include './view/users.php';
+            die();
+            break;
         case 'admin_workout':
             if(!isAdmin()) {
                 include('./includes/script_css.php');

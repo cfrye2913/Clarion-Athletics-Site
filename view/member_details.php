@@ -1,13 +1,10 @@
 <?php
-    $title = "Member Details Page - Clarion Athletics Site";
-    include("./includes/script_css.php");
-    require('./includes/navbar.php');
     $member = getMemberById($member_id);
 ?>
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: This paqe allows the admin to modify which sports are present in the database-->
+    Purpose: This paqe allows the admin to modify member information-->
 
 <html lang="en">
 <title>Admin - View Member</title>

@@ -61,6 +61,7 @@
         else {
             ?>
             <a class="d-inline btn" href = 'index.php?action=logout'>Logout</a>
+            <a class="d-inline btn" href = 'index.php?action=edit_profile'><?php $user = getUserById($_SESSION['userId']); echo $user->username; ?></a>
         <?php } ?>
         <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>
     </div>

@@ -326,7 +326,7 @@ function getAllImages(){
  * if id passed in, update
  */
 function persistUser(User $user) {
-    if (!isset($user->id) || $user->id == null)
+    if (!isset($user->user_id) || $user->user_id == null)
         return _insertUser($user);
     else
         return _updateUser($user);
@@ -334,18 +334,18 @@ function persistUser(User $user) {
 
 function _insertUser($user) {
     $db = _getConnection();
-    $query = "INSERT INTO `user` (username, password, salt, role, isActive) VALUES
-            (':username', ':pass', ':salt', ':role', ':active')";
+    $query = "INSERT INTO `user` (username, password, salt, role, is_active) VALUES
+            (:username, :pass, :salt, :role, :active)";
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $user->username);
-    $statement->bindValue(':pass', $user->password);
+    $statement->bindValue(':pass', $user->hashedPass);
     $statement->bindValue(':salt', $user->salt);
     $statement->bindValue(':role', $user->role);
     $statement->bindValue(':active', $user->isActive);
 
     $success = $statement->execute();
+    $error = $statement->errorInfo();
     $statement->closeCursor();
-
     return $db->lastInsertId();
 }
 
@@ -367,7 +367,7 @@ function _userFromRow($result) {
 
 function _updateUser(User $user) {
     $db = _getConnection();
-    $query = "UPDATE `users` SET `username`=:Username, `password`=:Pass, `salt`=:Salt, `is_active`=:Is_Active, `role`=:Role WHERE `id`=:Id";
+    $query = "UPDATE `user` SET `username`=:Username, `password`=:Pass, `salt`=:Salt, `is_active`=:Is_Active, `role`=:Role WHERE `user_id`=:Id";
     $statement = $db->prepare($query);
 
     $statement->bindValue(':Username', $user->username);
@@ -375,12 +375,13 @@ function _updateUser(User $user) {
     $statement->bindValue(':Salt', $user->salt);
     $statement->bindValue(':Is_Active', $user->isActive);
     $statement->bindValue(':Role', $user->role);
-    $statement->bindValue(':Id', $user->id);
+    $statement->bindValue(':Id', $user->user_id);
 
     $success = $statement->execute();
+    $error = $statement->errorInfo();
     $statement->closeCursor();
 
-    return $user->id;
+    return $user->user_id;
 }
 function updateMember(\Member $member){
     $db = _getConnection();
@@ -397,6 +398,36 @@ function updateMember(\Member $member){
 
     $success = $statement->execute();
     $statement->closeCursor();
+}
+
+function getAdmins() {
+    $db = _getConnection();
+    $query = "SELECT * FROM `user` WHERE `role` = 'admin'";
+
+    $statement = $db->prepare($query);
+    $success = $statement->execute();
+    $error = $statement->errorInfo();
+    $results = $statement->fetchAll();
+    $parsedResults = array();
+    foreach ($results as $res) {
+        array_push($parsedResults, _userFromRow($res));
+    }
+    return $parsedResults;
+}
+
+function getUsers() {
+    $db = _getConnection();
+    $query = "SELECT * FROM `user` WHERE `role` = 'user'";
+
+    $statement = $db->prepare($query);
+    $success = $statement->execute();
+    $error = $statement->errorInfo();
+    $results = $statement->fetchAll();
+    $parsedResults = array();
+    foreach ($results as $res) {
+        array_push($parsedResults, _userFromRow($res));
+    }
+    return $parsedResults;
 }
 
 function getUserById($id) {
@@ -432,4 +463,14 @@ function getUserByUsername($username) {
     else {
         return null;
     }
+}
+
+function deleteUser($id) {
+    $db = _getConnection();
+    $query = "DELETE FROM `user` WHERE `user_id` = :id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id', $id);
+    $success = $statement->execute();
+    $error = $statement->errorInfo();
+    $statement->closeCursor();
 }
