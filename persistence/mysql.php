@@ -93,7 +93,7 @@ class User {
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
     $username = 'root';
-    $password = 'root';
+    $password = '';
 
     return new \PDO($dsn, $username, $password);
 }

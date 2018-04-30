@@ -1,7 +1,10 @@
 <?php
+<<<<<<< HEAD
     //require_once ('Model/mysql.php');
     $config = require_once 'config.php';
     //require_once "Mail.php";
+=======
+>>>>>>> 2403e7c34b0835f18cc0116538513a7511850f63
     require_once('persistence/mysql.php');
 
     //Checks if the POST or GET actions are set

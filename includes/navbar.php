@@ -24,6 +24,7 @@
             <li class="nav-item">
                 <a class="btn" href="index.php?action=help">Help</a>
             </li>
+<<<<<<< HEAD
             <li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
@@ -34,6 +35,8 @@
                     <a class="dropdown-item" href="index.php?action=admin_workout">Workouts</a>
                 </div>
             </li>
+=======
+>>>>>>> 2403e7c34b0835f18cc0116538513a7511850f63
             <!--<li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
