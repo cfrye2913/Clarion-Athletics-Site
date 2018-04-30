@@ -60,41 +60,36 @@
         <!-- Tab content selectable through pills -->
         <div class = "tab-content">
             <!-- Login Tab -->
-            <div class="tab-pane active fade show" id="login" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
+            <div class="jumbotron tab-pane active fade show" id="login" role="tabpanel" aria-labelledby="login-tab" aria-expanded="true">
                 <!-- Login Tab -->
-                <form id = 'loginForm' class = "form-control col-6 mr-auto ml-auto">
+                <form id = 'loginForm' class = "form col-6 mr-auto ml-auto">
                     <br>
-                    <span class = "p-2">
-                        Username: <input id = 'username' type = "text" placeholder="Username">
-                    </span>
-                    <br>
-                    <br>
-                    <span class = "m-2">
-                        Password: <input id = 'password' type = "password" placeholder = "Password">
-                    </span>
-                    <br>
-                    <button class = "btn-primary m-2" type = 'submit'>Login</button>
+                    <div class = "form-row">
+                        <label for = "un">Username:</label> <input class = "form-control" id = 'un' type = "text" placeholder="Username">
+                    </div>
+
+                    <div class = "form-row">
+                        <label for = "pw">Password:</label> <input class = "form-control" id = 'pw' type = "password" placeholder = "Password">
+                    </div>
+
+                    <button class = "btn btn-primary m-2" type = 'submit'>Login</button>
                 </form>
             </div>
             <!-- Signup Tab -->
-            <div id = "signup" class = "tab-pane fade" role = "tabpanel" aria-labelledby="signup-tab">
+            <div id = "signup" class = "jumbotron tab-pane fade" role = "tabpanel" aria-labelledby="signup-tab">
                 <!-- Sign Up form -->
-                <form id = 'signupForm' class = "form-control col-6 mr-auto ml-auto">
+                <form id = 'signupForm' class = "form col-6 mr-auto ml-auto">
                     <br>
-                    <span class = "text-left"> Email: </span>
-                    <span class = "text-center">
-                        <input type = "text">
-                    </span>
-                    <br>
-                    <br>
-                    <span class = "m-2">
-                        Password: <input type = "password">
-                    </span>
-                    <br>
-                    <br>
-                    <span class = "m-2">
-                        Confirm Password: <input type = "password">
-                    </span>
+                    <div class = "form-row">
+                        <label for = "email"> Email: </label>
+                        <input class = "form-control" id = "email" type = "text">
+                    </div>
+                    <div class = "form-row">
+                        <label for = "password">Password:</label> <input id = "password" class = "form-control" type = "password">
+                    </div>
+                    <div class = "form-row">
+                        <label for = "confirm">Confirm Password:</label> <input id = "confirm" class = "form-control" type = "password">
+                    </div>
                     <br>
                     <button class = "btn-primary m-2" type = 'submit'>Sign Up</button>
                 </form>
