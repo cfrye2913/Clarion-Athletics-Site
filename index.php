@@ -42,6 +42,13 @@
     switch($action)
     {
         case 'add_image':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             $title = "Image Uploaded";
             require("./includes/script_css.php");
             require("./includes/navbar.php");
@@ -93,6 +100,13 @@
             }
             break;
         case 'add_sport':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             $sport = new \Sport();
             $allSports = getSports();
             $sportsNames = array();
@@ -120,6 +134,13 @@
             include('./includes/footer.php');
             break;
         case 'remove_sport':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             if(isset($_GET['id'])){
                 $id = intval($_GET['id']);
             }else{
@@ -142,6 +163,13 @@
             die();
             break;
         case 'admin':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include './view/admin.php';
             break;
         case '/api/login':
@@ -191,6 +219,13 @@
             include 'view/members.php';
             break;
         case 'removeMember':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
             }else{
@@ -203,6 +238,13 @@
             include './View/members.php';
             break;
         case 'member_details':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             if(isset($_GET)) {
                 $member_id = $_GET['member_id'];
                 include('./view/member_details.php');
@@ -217,6 +259,13 @@
             }
             break;
         case 'updateMember':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             if(!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['sport']) || !isset($_POST['email']) || !isset($_POST['memberId'])){
                 echo '<script>alert("All fields must be entered to update the member.");</script>';
                 include './View/members.php';
@@ -254,6 +303,13 @@
             include("./includes/footer.php");
             break;
         case 'send_newsletter':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             $emails = getNewsletterMembersEmails();
             $from  = "cubeckerlab@gmail.com";
             $recipients = $emails;
@@ -291,6 +347,13 @@
             include './view/training.php';
             break;
         case 'upload_workout':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             //set a title
             $title = "Workout Upload";
             //include the navbar
@@ -328,6 +391,13 @@
             include './view/UnderConstruction.php';
             break;
         case 'remove_image':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             $imagePath = './Images/CarouselImages/';
             if(isset($_GET['image_name'])) {
                 $imageName = $_GET['image_name'];
@@ -342,16 +412,44 @@
             include './view/videos.php';
             break;
         case 'admin_images':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include 'view/admin_images.php';
             break;
 
         case 'admin_workout':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include 'View/admin_workout.php';
 
         case 'admin_newsletter':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include 'view/admin_newsletter.php';
             break;
         case 'admin_sports':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
             include 'view/admin_sports.php';
             break;
         default:
