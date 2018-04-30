@@ -3,7 +3,7 @@
     Purpose: Simple form to allow the user to sign up for a newsletter-->
 <!DOCTYPE html>
 <html lang="en">
-<title>Edit Images</title>
+<title>Newsletter Signup</title>
 <head>
     <?php include("./includes/script_css.php");
     require('./includes/navbar.php');?>

@@ -33,6 +33,7 @@
                         <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
                         <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
                         <a class="dropdown-item" href="index.php?action=admin_workout">Workouts</a>
+                        <a class="dropdown-item" href="index.php?action=admin_users">Users</a>
                     </div>
                 </li>
             <?php } ?>

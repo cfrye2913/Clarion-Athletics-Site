@@ -12,7 +12,7 @@ include("./includes/navbar.php");
     ****This include is required to use bootstrap or custom CSS-->
 
 <html lang="en">
-<title>Edit Images</title>
+<title>Admin - Members</title>
 <head>
     <?php include("./includes/script_css.php");
     require('./includes/navbar.php');?>

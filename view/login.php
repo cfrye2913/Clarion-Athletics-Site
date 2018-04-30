@@ -65,11 +65,11 @@
                 <form id = 'loginForm' class = "form col-6 mr-auto ml-auto">
                     <br>
                     <div class = "form-row">
-                        <label for = "un">Username:</label> <input class = "form-control" id = 'un' type = "text" placeholder="Username">
+                        <label for = "un">Username:</label> <input class = "form-control" id = 'username' type = "text" placeholder="Username">
                     </div>
 
                     <div class = "form-row">
-                        <label for = "pw">Password:</label> <input class = "form-control" id = 'pw' type = "password" placeholder = "Password">
+                        <label for = "pw">Password:</label> <input class = "form-control" id = 'password' type = "password" placeholder = "Password">
                     </div>
 
                     <button class = "btn btn-primary m-2" type = 'submit'>Login</button>
@@ -85,7 +85,7 @@
                         <input class = "form-control" id = "email" type = "text">
                     </div>
                     <div class = "form-row">
-                        <label for = "password">Password:</label> <input id = "password" class = "form-control" type = "password">
+                        <label for = "password">Password:</label> <input id = "pw" class = "form-control" type = "password">
                     </div>
                     <div class = "form-row">
                         <label for = "confirm">Confirm Password:</label> <input id = "confirm" class = "form-control" type = "password">

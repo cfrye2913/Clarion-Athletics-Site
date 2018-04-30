@@ -208,6 +208,12 @@
             include './view/help.php';
             break;
         case 'login':
+            if(isLoggedIn()){
+                require('./includes/script_css.php');
+                require ('./includes/navbar.php');
+                echo "You are already logged in";
+                require ('./includes/footer.php');
+            }
             include './view/login.php';
             break;
         case 'logout':
@@ -451,6 +457,16 @@
                 die();
             }
             include 'view/admin_sports.php';
+            break;
+        case 'admin_users':
+            if(!isAdmin()) {
+                include('./includes/script_css.php');
+                include('./includes/navbar.php');
+                echo 'Permission denied';
+                include('./includes/footer.php');
+                die();
+            }
+            include './view/users.php';
             break;
         default:
             include './view/home.php';

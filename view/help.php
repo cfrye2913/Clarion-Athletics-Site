@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<title>Edit Images</title>
+<title>Help</title>
 <head>
     <?php include("./includes/script_css.php");
     require('./includes/navbar.php');?>

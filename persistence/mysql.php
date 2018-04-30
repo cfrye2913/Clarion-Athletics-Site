@@ -93,7 +93,7 @@ class User {
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
     $username = 'root';
-    $password = 'root';
+    $password = '';
 
     return new \PDO($dsn, $username, $password);
 }
@@ -312,7 +312,7 @@ function getAllImages(){
     $success = $statement->execute();
     $results = $statement->fetchAll();
 
-    $parsedResults = [];
+    $parsedResults = array();
     foreach($results as $result){
         array_push($parsedResults, _imageFromRow($result));
     }

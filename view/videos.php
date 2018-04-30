@@ -7,7 +7,7 @@
     ****This include is required to use bootstrap or custom CSS-->
 
 <html lang="en">
-<title>Edit Images</title>
+<title>Exercise Videos</title>
 <head>
     <?php include("./includes/script_css.php");
     require('./includes/navbar.php');?>
