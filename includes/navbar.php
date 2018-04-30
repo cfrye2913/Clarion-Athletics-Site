@@ -24,18 +24,19 @@
             <li class="nav-item">
                 <a class="btn" href="index.php?action=help">Help</a>
             </li>
-            <?php if(isAdmin()){ ?>
-                <li class="nav-item dropdown">
-                    <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="index.php?action=members">Members</a>
-                        <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
-                        <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
-                        <a class="dropdown-item" href="index.php?action=admin_newsletter">Newsletter</a>
-                    </div>
-                </li>
-            <?php } ?>
+<<<<<<< HEAD
+            <li class="nav-item dropdown">
+                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="index.php?action=members">Members</a>
+                    <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
+                    <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
+                    <a class="dropdown-item" href="index.php?action=admin_workout">Workouts</a>
+                </div>
+            </li>
+=======
+>>>>>>> 2403e7c34b0835f18cc0116538513a7511850f63
             <!--<li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
@@ -54,13 +55,7 @@
                 </div>
             </li>-->
         </ul>
-        <?php  if (!isLoggedIn()) {?>
-            <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
-        <?php }
-        else {
-        ?>
-            <a class="d-inline btn" href = 'index.php?action=logout'>Logout</a>
-        <?php } ?>
+        <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
         <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>
         <!--<div class = "container my-2 my-lg-0"> Login/Sign up</div> -->
         <!--<form class="form-inline my-2 my-lg-0">
