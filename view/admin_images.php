@@ -51,7 +51,7 @@
                 echo '<tr>';
                 echo '<td scope = \"col\">' . $imageArray[$i] . '</td>';
                 echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="index.php?action=remove_image&image_name=' . $imageArray[$i] . '">Delete</a>';
-                echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="../Images/CarouselImages/' . $imageArray[$i] .'">Download</a>';
+                echo '<td scope = \"col\"> <a class="btn btn-primary btn-lg" href="../Images/CarouselImages/' . $imageArray[$i] .'" download>Download</a>';
                 echo '</tr>';
             }
         }
