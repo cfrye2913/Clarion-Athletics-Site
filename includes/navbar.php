@@ -24,16 +24,18 @@
             <li class="nav-item">
                 <a class="btn" href="index.php?action=help">Help</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="index.php?action=members">Members</a>
-                    <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
-                    <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
-                    <a class="dropdown-item" href="index.php?action=admin_newsletter">Newsletter</a>
-                </div>
-            </li>
+            <?php if(isAdmin()){ ?>
+                <li class="nav-item dropdown">
+                    <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="index.php?action=members">Members</a>
+                        <a class="dropdown-item" href="index.php?action=admin_images">Images</a>
+                        <a class="dropdown-item" href="index.php?action=admin_sports">Sports</a>
+                        <a class="dropdown-item" href="index.php?action=admin_newsletter">Newsletter</a>
+                    </div>
+                </li>
+            <?php } ?>
             <!--<li class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
@@ -52,7 +54,13 @@
                 </div>
             </li>-->
         </ul>
-        <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
+        <?php  if (!isLoggedIn()) {?>
+            <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
+        <?php }
+        else {
+        ?>
+            <a class="d-inline btn" href = 'index.php?action=logout'>Logout</a>
+        <?php } ?>
         <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>
         <!--<div class = "container my-2 my-lg-0"> Login/Sign up</div> -->
         <!--<form class="form-inline my-2 my-lg-0">

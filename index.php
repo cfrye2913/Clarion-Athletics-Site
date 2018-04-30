@@ -1,6 +1,6 @@
 <?php
     require_once('./persistence/mysql.php');
-    require_once "Mail.php";
+    //include_once "Mail.php";
     require_once('persistence/mysql.php');
     //Checks if the POST or GET actions are set
     //sets action appropriately.
@@ -149,6 +149,7 @@
 
             $_SESSION['userId'] = $user->user_id;
             $resp['success'] = 'Success';
+            echo json_encode($resp);
             die();
             break;
         case 'help':
@@ -156,6 +157,11 @@
             break;
         case 'login':
             include './view/login.php';
+            break;
+        case 'logout':
+            $_SESSION = array();
+            session_destroy();
+            require_once './view/home.php';
             break;
         case 'members':
             include 'view/members.php';

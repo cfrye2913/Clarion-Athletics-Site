@@ -32,7 +32,7 @@
                             password: pass
                         }
                     }).done(function (data, status, xhr) {
-                        window.location.replace('./index.php?path=/home');
+                        window.location.replace('./index.php?action=home');
                     }).fail(function (jqXHR, textStatus, errorThrown) {
                         var data = jqXHR.responseJSON;
                         if (data !== undefined)
