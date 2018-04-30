@@ -1,15 +1,7 @@
-<?php
-$title = "Members Page - Clarion Athletics Site";
-include("./includes/navbar.php");
-?>
-
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: This page can be included on any page to incorporate
-    a common header. This page should be included on every page that
-    the user sees.
-    ****This include is required to use bootstrap or custom CSS-->
+    Purpose: Allows the administrator to view the members.-->
 
 <html lang="en">
 <title>Edit Images</title>

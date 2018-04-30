@@ -10,7 +10,7 @@ CREATE TABLE `user` (
   `password`  VARBINARY(255),
   `salt`      VARBINARY(255),
   `role`      VARCHAR(50),
-  `isActive`  TINYINT(1),
+  `is_active`  TINYINT(1),
   CONSTRAINT `user_pk` PRIMARY KEY (`user_id`)
 );
 

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018

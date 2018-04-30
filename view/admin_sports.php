@@ -1,14 +1,7 @@
-<?php
-$title = "Edit Images- Clarion Athletics Site";
-include("./includes/navbar.php");
-?>
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: This page can be included on any page to incorporate
-    a common header. This page should be included on every page that
-    the user sees.
-    ****This include is required to use bootstrap or custom CSS-->
+    Purpose: This page allows the administrator to add a sport-->
 
 <html lang="en">
 <title>Edit Images</title>

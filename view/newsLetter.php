@@ -35,7 +35,7 @@
                         ?>
                             <option> <?=$row['sport_name']; ?> </option>
                         <?php endforeach; ?>
-
+                    </select>
                     <label class="btn btn-outline-secondary btn-sm">
                         <input name="receive_newsletter" = "receive_newsletters" type="checkbox" autocomplete="off"> Receive Newsletters
                     </label>

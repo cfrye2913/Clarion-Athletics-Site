@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
-    Purpose: This page can be included on any page to incorporate
-    a common header. This page should be included on every page that
-    the user sees.
-    ****This include is required to use bootstrap or custom CSS-->
+    Purpose: Allows admin to send the newsletter-->
 
 <html lang="en">
 <title>Admin - Newsletter</title>
@@ -25,7 +22,6 @@
             <div class = "col-6 text-left pl-3"><input name = "userFile" type = "file"/> </div>
             <input type = "submit" value = "Upload Newsletter" class = "btn-primary ml-auto mr-auto mt-3 mb-3"/>
         </form>
-        <!--            <a href = "index.php?action=send_newsletter" class = "btn-danger">Send Newsletter</a>-->
         <form action="index.php?action=send_newsletter" method="post">
             <input type="submit" value="Send newsletter" class = "btn-danger">
         </form>

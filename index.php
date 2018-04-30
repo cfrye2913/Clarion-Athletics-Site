@@ -43,6 +43,7 @@
     {
         case 'add_image':
             $title = "Image Uploaded";
+            require("./includes/script_css.php");
             require("./includes/navbar.php");
             //get the file image and store the path that we want to store it at
             $uploadFile = "./Images/CarouselImages/" . $_FILES['userFile']['name'];
@@ -65,7 +66,7 @@
             elseif($_FILES['userFile']['error'] == UPLOAD_ERR_INI_SIZE)
             {
                 echo "This file is too large to be uploaded <br>";
-                echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
+                echo "Click <a href = './index.php?action=admin'>here</a> to return to the admin page";
             }
             else {
 
@@ -113,6 +114,7 @@
                 $message = 'No sport was entered. Please enter a sport and try again';
             }
             $title = 'Success';
+            include './includes/script_css.php';
             include('./includes/navbar.php');
             echo $message;
             include('./includes/footer.php');
@@ -173,6 +175,7 @@
             }
             else{
                 $title = 'Success';
+                include './includes/script_css.php';
                 include('./includes/navbar.php');
                 echo 'There was a problem getting this member\'s information';
                 include('./includes/footer.php');
@@ -189,6 +192,7 @@
             $member->sport = $_POST['sport'];
             $member->receive_newsletter = isset($_POST['receive_newsletter']) ? 1: 0;
             insertMember($member);
+            include './includes/script_css.php';
             include ("./includes/navbar.php");
             echo("Signup successful");
             include("./includes/footer.php");
@@ -260,6 +264,7 @@
 
             finfo_close($finfo);
             echo $message;
+            include './includes/script_css.php';
             require './includes/navbar.php';
             break;
         case 'underConstruction':

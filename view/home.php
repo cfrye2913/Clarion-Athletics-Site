@@ -1,24 +1,14 @@
 <!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
     Last Modified: 2/23/2018
     Purpose: Landing page for the site-->
-<?php
-    $title = "Home - Clarion Athletics Website";
-    require('./includes/script_css.php');
-    require('./includes/navbar.php'); ?>
 <!DOCTYPE html>
-<!--Authors: Christina Cotton, Aaron Cooper, and Chris Frye
-    Last Modified: 2/23/2018
-    Purpose: This page can be included on any page to incorporate
-    a common header. This page should be included on every page that
-    the user sees.
-    ****This include is required to use bootstrap or custom CSS-->
-
-<html lang="en">
-<title>Home - Clarion Athletics</title>
-<head>
-    <?php include("./includes/script_css.php");
-    require('./includes/navbar.php');?>
-</head>
+    <html lang="en">
+    <title>Home - Clarion Athletics</title>
+    <head>
+        <?php
+        include("./includes/script_css.php");
+        require('./includes/navbar.php');?>
+    </head>
 <body>
   <div class="container mb-5">
 

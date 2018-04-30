@@ -93,7 +93,7 @@ class User {
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
     $username = 'root';
-    $password = '';
+    $password = 'root';
 
     return new \PDO($dsn, $username, $password);
 }
@@ -338,7 +338,7 @@ function _userFromRow($result) {
     $user->hashedPass = $result['password'];
     $user->salt = $result['salt'];
     $user->role = $result['role'];
-    $user->isActive = $result['isActive'];
+    $user->isActive = $result['is_active'];
 
     return $user;
 }
@@ -361,13 +361,14 @@ function _updateUser(User $user) {
     return $user->id;
 }
 
-function getUserById(int $id) {
+function getUserById($id) {
     $db  = _getConnection();
-    $query = "SELECT `id`, `username`, `password`, `salt`, `is_active`, `role` FROM `users` WHERE id=:Id LIMIT 1";
+    $query = "SELECT `user_id`, `username`, `password`, `salt`, `is_active`, `role` FROM `user` WHERE user_id=:Id LIMIT 1";
 
     $statement = $db->prepare($query);
     $statement->bindValue(':Id', $id);
     $statement->execute();
+    $error = $statement->errorInfo();
     $result = $statement->fetch();
     $statement->closeCursor();
 
