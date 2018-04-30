@@ -15,12 +15,15 @@
             <li class="nav-item">
                 <a class="btn" href="index.php?action=home">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="btn" href="index.php?action=training">Training</a>
-            </li>
-            <li class="nav-item">
-                <a class="btn" href="index.php?action=videos">Videos</a>
-            </li>
+            <!-- Hides navigation bar items if permissions are not set -->
+            <?php if(isLoggedIn()) { ?>
+<!--                <li class="nav-item">-->
+<!--                    <a class="btn" href="index.php?action=training">Training</a>-->
+<!--                </li>-->
+                <li class="nav-item">
+                    <a class="btn" href="index.php?action=videos">Videos</a>
+                </li>
+            <?php } ?>
             <li class="nav-item">
                 <a class="btn" href="index.php?action=help">Help</a>
             </li>

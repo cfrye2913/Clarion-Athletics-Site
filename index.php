@@ -17,6 +17,8 @@
         include('./view/home.php');
         exit();
     }
+    //Starts a new session every time the website is reloaded
+    $_SESSION = array();
     //Starts a session using cookies
     session_start();
 
@@ -194,7 +196,7 @@
             $user = getUserByUsername($username);
             if( is_null($user) || $user->user_id == null || !verifyPassword($plainTextPass, $user->salt, $user->hashedPass)) {
                 header(' ', true, 400);
-                $resp['message'] = 'Incorrect email or password';
+                $resp['message'] = 'Incorrect username or password';
                 echo json_encode($resp);
                 die();
             }
