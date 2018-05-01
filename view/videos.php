@@ -16,13 +16,8 @@
     <div class="container">
         <div class="company-template">
             <h1>Video Page</h1>
-            <form class="align-content-center my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
             <p class="lead">
-                <h2>
-                    Back Squat
-                </h2>
+                <h2>Back Squat</h2>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/fgqwt7p_Gts" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
             <br>

@@ -18,11 +18,8 @@
             <!-- Hides navigation bar items if permissions are not set -->
             <?php if(isLoggedIn()) { ?>
                 <li class = "nav-item">
-                    <a class="btn" href = "./resourceFiles/workout.pdf">Workouts</a>
+                    <a class="btn" target = "_blank" href = "./resourceFiles/workout.pdf">Workouts</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="btn" href="index.php?action=training">Training</a>-->
-<!--                </li>-->
                 <li class="nav-item">
                     <a class="btn" href="index.php?action=videos">Videos</a>
                 </li>
@@ -43,33 +40,17 @@
                     </div>
                 </li>
             <?php } ?>
-            <!--<li class="nav-item dropdown">
-                <a class="btn dropdown-toggle" href="http://example.com" id="dropdown01"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Baseball</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Basketball</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Cross Country</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Football</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Golf</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Soccer</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Softball</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Swimming & Diving</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Tennis</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Volleyball</a>
-                    <a class="dropdown-item" href="View/UnderConstruction.php">Wrestling</a>
-                </div>
-            </li>-->
         </ul>
         <?php  if (!isLoggedIn()) {?>
             <a class="d-inline btn" href = 'index.php?action=login'>Login/Sign Up</a>
+            <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>
         <?php }
         else {
             ?>
             <a class="d-inline btn" href = 'index.php?action=logout'>Logout</a>
             <a class="d-inline btn" href = 'index.php?action=edit_profile'><?php $user = getUserById($_SESSION['userId']); echo $user->username; ?></a>
         <?php } ?>
-        <a class="d-inline btn" href = 'index.php?action=newsletter'>News Letter</a>
+
     </div>
     </nav>
 

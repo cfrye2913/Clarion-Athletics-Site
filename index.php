@@ -92,7 +92,7 @@
                 if ($imageType != IMAGETYPE_GIF && $imageType != IMAGETYPE_JPEG &&
                     $imageType != IMAGETYPE_PNG) {
                     echo "Only gifs, jpegs, and png files are supported. <br>";
-                    echo "Click <a href = 'view/admin.php'>here</a> to return to the admin page";
+                    echo "Click <a href = './index.php?action=admin_images'>here</a> to return to the admin page";
                 } elseif (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)) {
                     echo "<p> $message; </p>";
                     $image = new \Image();

@@ -53,4 +53,3 @@ INSERT INTO `sport` (sport_name) VALUES ("Swimming & Diving");
 INSERT INTO `sport` (sport_name) VALUES ("Tennis");
 INSERT INTO `sport` (sport_name) VALUES ("Volleyball");
 INSERT INTO `sport` (sport_name) VALUES ("Wrestling");
-

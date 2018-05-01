@@ -35,8 +35,7 @@
                     }
                 }).done(function (data, status, xhr) {
                     alert(data.message);
-                    username.val("");
-                    pass.val("");
+                    window.location.reload(true)
                 }).fail(function (jqXHR, textStatus, errorThrown) {
                     var data = jqXHR.responseJSON;
                     if (data !== undefined)

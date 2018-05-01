@@ -93,7 +93,7 @@ class User {
 function _getConnection() {
     $dsn = 'mysql:host=localhost;dbname=athletics_db';
     $username = 'root';
-    $password = '';
+    $password = 'root';
 
     return new \PDO($dsn, $username, $password);
 }
@@ -402,9 +402,10 @@ function updateMember(\Member $member){
 
 function getAdmins() {
     $db = _getConnection();
-    $query = "SELECT * FROM `user` WHERE `role` = 'admin'";
+    $query = "SELECT * FROM `user` WHERE `role` = 'admin' AND user_id != :id";
 
     $statement = $db->prepare($query);
+    $statement->bindValue(':id', $_SESSION['userId']);
     $success = $statement->execute();
     $error = $statement->errorInfo();
     $results = $statement->fetchAll();
